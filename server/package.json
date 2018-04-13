@@ -4,7 +4,8 @@
   "description": "a trading platform",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pm2 start node/ecosystem.config.js"
   },
   "repository": {
     "type": "git",
@@ -27,16 +28,19 @@
     "faker": "^4.1.0",
     "fs": "0.0.1-security",
     "http": "0.0.0",
+    "json-beautify": "^1.0.1",
     "moment": "^2.18.1",
     "mongodb": "^2.2.31",
     "mongoose": "^4.13.8",
-    "nodemailer": "^4.1.0",
+    "nodemailer": "^4.6.4",
     "object-hash": "^1.2.0",
     "path": "^0.12.7",
     "pug": "^2.0.0-rc.4",
-    "smarts": "^1.0.64",
     "socket.io": "^2.0.3",
     "url": "^0.11.0",
     "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "smarts": "^1.0.68"
   }
 }

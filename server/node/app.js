@@ -1,5 +1,6 @@
 let compression = require('compression')
 let express = require("express")
+let cors = require("cors")
 let app = express()
 app.use(compression())
 fs = require('fs')
@@ -9,6 +10,7 @@ url = require('url')
 nodemailer = require('nodemailer')
 pug = require('pug')
 let http = require('http').Server(app)
+let beautify = require('json-beautify')
 // var io = require('socket.io')(http)
 // ahh
 // io.origins(['*:*'])
@@ -23,7 +25,6 @@ smarts = require('smarts')({node: true})
 uuid = require('uuid/v4')
 faker = require('faker')
 let logs = {}
-// emailConf = require('./conf/email')
 //Set App Local Variables
 app.locals.deploy = "local"
 ///// SET BODY PARSER CONFIG
@@ -51,6 +52,8 @@ app.use(
     })
   })
 )
+app.options('*', cors()) // enable pre-flight request for DELETE request
+
 //// SET VIEW ENGINE PUG/JADE
 app.set('view engine', 'pug')
 //// Allows use of /snippets and absolute paths in jade includes
@@ -89,6 +92,41 @@ app.post('/api/posts', (req, res) => {
 
 })
 
+app.post('/api/email/json', cors(), (req, res)=>{
+  console.log(req)
+  var mailOpts, smtpTrans
+  if(req.body.json && req.body.email){
+    //Setup Nodemailer transport, I chose gmail. Create an routerlication-specific password to avoid problems.
+    smtpTrans = nodemailer.createTransport({
+            service: 'Gmail',
+            auth: {
+                // xoauth2: xoauth2.createXOAuth2Generator({
+                user: secretConf.email.email,
+                pass: secretConf.email.password
+                // })
+            }
+        })
+        //Mail options
+    mailOpts = {
+        from: req.body.from,
+        to: req.body.email,
+        subject: 'JSON email API',
+        text: beautify(req.body.json, null, 2, 80)
+    }
+  
+  
+    smtpTrans.sendMail(mailOpts, (error, response)=>{
+  
+        if (error) {
+            res.sendStatus(500)
+        } else {
+            res.sendStatus(200)
+        }
+  
+    })
+
+  }
+})
 http.listen(conf.port, () => {
   console.error("%s running on port %s", conf.siteTitle, conf.port)
 })
@@ -139,26 +177,40 @@ io.on('connection', function (socket) {
   // data generation
     socket.on('getUniqueName', function(data){
       checkGoodName(data)
+      .then(name=>{
+        data.name = name
+        data.uuid = uuid()
+        socket.emit('giveUniqueName', data)
+      })
+      .catch(err=>{
+        if(err){
+          console.error('caught error at 7493g3892f32fh32')
+          console.error(err)
+        }
+      })
     })
     // functions
       let checkGoodName = function(data){
-        let randomName = faker.fake("{{name.firstName}}")
-        // let randomName = faker.fake("{{name.firstName}} {{name.lastName}}")
-        thingModel.find({
-          names: {
-            $all: ["planet express good", randomName]
-          }
-        })
-        .then(docs=>{
-          if(docs.length < 1){
-            data.name = randomName
-            socket.emit('giveUniqueName', data)
-          } else {
-            checkGoodName(data)
-          }
-        })
-        .catch(err=>{
-          console.error(err)
+        return new Promise((resolve, reject)=>{
+          let randomName = faker.fake("{{name.firstName}}")
+          // let randomName = faker.fake("{{name.firstName}} {{name.lastName}}")
+          thingModel.find({
+            names: {
+              $all: ["planet express good", randomName]
+            }
+          })
+          .then(docs=>{
+            if(docs.length < 1){
+              resolve(randomName)
+            } else {
+              resolve(checkGoodName(data))
+            }
+          })
+          .catch(err=>{
+            console.error('caught error here ht928p3tg9832')
+            console.error(err)
+            reject(err)
+          })
         })
       }
   // things

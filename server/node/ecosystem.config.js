@@ -7,9 +7,9 @@ module.exports = {
 
     // First application
     {
-      name      : 'agoraserver',
-      script    : 'app.js',
-      watch	: ['app.js', 'models', 'routes', 'scripts'],
+      name      : 'alopuserver',
+      script    : 'node/app.js',
+      watch	: [ 'node/app.js', 'node/models', 'node/routes', 'node/scripts'],
       env: {
         COMMON_VARIABLE: 'true'
       },

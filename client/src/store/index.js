@@ -125,7 +125,11 @@ export default new Vuex.Store({
                 hmm2: [Object],
                 hmm3: {Array: Array}
             }
-        }
+        },
+        cached: [
+            []
+        ],
+        interactionStarted: false
     },
     getters: {
         isAuthenticated() {
@@ -136,15 +140,40 @@ export default new Vuex.Store({
         },
         getUsername(state) {
             return state.entity.username
+        },
+        latestCached(state){
+            console.log('state')
+            console.log(state)
+            console.log(state.cached.length)
+            if(state.cached.length){
+                return state.cached[state.cached.length-1]
+            } else {
+                state.cached.push([])
+                return state.cached[state.cached.length-1]
+            }
         }
     },
     setters: {
         // sandboxThing(data){
 
         // }
+
     },
     // Mutation for when you use it as a state property
     mutations: {
+        interactionStarted(state, payload){
+            state.interactionStarted = payload
+        },
+        addCachedState(state, payload){
+            console.log('caching payload')
+            console.log(payload)
+            if(state.cached.length >= 8){
+                state.cached = state.cached.slice(state.cached.length-8,state.cached.length)
+                state.cached.push(payload)
+            } else {
+                state.cached.push(payload)                
+            }
+        },
         isAuthenticated(state, payload) {
             state.isAuthenticated = payload.isAuthenticated
         },

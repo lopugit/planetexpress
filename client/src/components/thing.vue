@@ -3020,27 +3020,31 @@ export default {
     // location
       locationInitialized(map){
         
-        // geocoder search bar
-        let geocoder =  new MapboxGeocoder({
-          accessToken: mapboxgl.accessToken
-        })
-        this.thingMapGeocoder = geocoder
-        map.addControl(geocoder);
+        this.$nextTick(()=>{
+          // geocoder search bar
+          if(MapboxGeocoder){
+            let geocoder =  new MapboxGeocoder({
+              accessToken: mapboxgl.accessToken
+            })
+            this.thingMapGeocoder = geocoder
+            map.addControl(geocoder);
+          }
 
-        this.thingMap = map
-        map.on('load', ()=>{
-          // features
-            // create thing feature layer
-              map.addSource('things', {
-                type: 'geojson',
-                data: this.thingMapFeatures
-              })
-            // update search input address value
-              this.updateGeoSearchValue()
+          this.thingMap = map
+          map.on('load', ()=>{
+            // features
+              // create thing feature layer
+                map.addSource('things', {
+                  type: 'geojson',
+                  data: this.thingMapFeatures
+                })
+              // update search input address value
+                this.updateGeoSearchValue()
 
-          // listeners
-            // listen for move events
-            this.listenForDragEvents(map)
+            // listeners
+              // listen for move events
+              this.listenForDragEvents(map)
+          })
         })
       },
       listenForDragEvents(map){
@@ -3208,7 +3212,7 @@ export default {
         return new Promise((resolve, reject)=>{
           this.getMapCentreAddress()
           .then((geojson)=>{
-            if(geojson){
+            if(geojson && MapboxGeocoder && this.getsmart(this.thingMapGeocoder, 'inputEl.value', false)){
               this.thingMapGeocoder._inputEl.value = geojson.place_name
             }
             resolve(geojson)
