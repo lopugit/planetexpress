@@ -9,7 +9,7 @@
 			//- @click="spinLogo"
 		.intro-text-container
 			.intro-text Welcome to&nbsp;
-				.inline alopu, a social platform for trading anything
+				.inline alopu, a social platform for trading anything. Even ideas
 				//- .capitalize.inline Agora
 		search(
 			@go=`createNewGetter(data)`
