@@ -1,0 +1,53 @@
+{
+  "name": "quasar-test",
+  "version": "1.0.0",
+  "description": "A Quasar Framework app",
+  "productName": "Quasar App",
+  "cordovaId": "org.cordova.quasar.app",
+  "author": "lopu <ireply@myleisure.com.au>",
+  "private": true,
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "vue-i18n": "^7.3.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.2.0",
+    "circular-json": "^0.5.1",
+    "electron": "^1.8.4",
+    "fs": "0.0.1-security",
+    "mapbox-gl": "^0.44.1",
+    "mapbox-gl-vue": "^1.7.0",
+    "node-sass": "^4.7.2",
+    "pug": "^2.0.1",
+    "pug-loader": "^2.3.0",
+    "sass-loader": "^6.0.7",
+    "quasar-cli": "^0.15.14",
+    "smarts": "^1.0.68",
+    "socket.io-client": "^2.0.4",
+    "vue": "^2.5.16",
+    "vue-awesome": "^2.3.5",
+    "vue-img-inputer": "^1.1.5",
+    "vue-particles": "^1.0.9",
+    "vue-resource": "^1.5.0",
+    "vue-select": "^2.4.0",
+    "vue-socket.io": "^2.1.1-b",
+    "vue-uuid": "^1.0.0",
+    "vue2-medium-editor": "^1.1.4",
+    "vuedraggable": "^2.16.0",
+    "vuex": "^3.0.1",
+    "vuex-persistedstate": "^2.4.2",
+    "alopu-socket.io-parser": "^3.1.2"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ]
+}
