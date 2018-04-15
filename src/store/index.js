@@ -142,11 +142,13 @@ export default new Vuex.Store({
             return state.entity.username
         },
         latestCached(state){
-            console.log('state')
-            console.log(state)
-            console.log(state.cached.length)
             if(state.cached.length){
-                return state.cached[state.cached.length-1]
+                let ret = state.cached[state.cached.length-1]
+                if(ret && ret.constructor == Array){
+                    return ret
+                } else {
+                    return []
+                }
             } else {
                 state.cached.push([])
                 return state.cached[state.cached.length-1]
@@ -169,9 +171,10 @@ export default new Vuex.Store({
             console.log(payload)
             if(state.cached.length >= 8){
                 state.cached = state.cached.slice(state.cached.length-8,state.cached.length)
+            }
+            if(payload && payload.constructor == Array){
                 state.cached.push(payload)
             } else {
-                state.cached.push(payload)                
             }
         },
         isAuthenticated(state, payload) {

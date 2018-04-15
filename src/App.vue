@@ -2,20 +2,13 @@
   #q-app(ref="app")
     //- navbar(:siteTitle="siteTitle")
     q-layout(
-      view="HHH Lpr fff"
+      view="HHH Lpr FFF"
       )
       q-layout-drawer(
         side="left"
         v-model="mainDrawer"
         :overlay="true"
         ).z-top
-        //- q-toolbar(
-        //-   color="primary"
-        //-   )
-          //- q-btn(
-          //-   icon="close"
-          //-   @click="mainDrawer = !mainDrawer"
-          //-   ).shadow-0
         q-list
           q-item(
             )
@@ -36,7 +29,7 @@
             )
               q-item-tile(
                 label
-              ) Nikolaj Frey
+              ) Bowie
               q-item-tile(
                 sublabel
                 size=".5rem"
@@ -550,7 +543,7 @@
           //- q-toolbar-title() Planet Express
       //- q-layout-header.fixed-top
       q-page-container.q-pt-none
-        router-view.router-view(:siteTitle="siteTitle")
+        router-view.router-view
       q-toolbar.fixed-top.q-nav-toolbar(
         color="primary"
         :overlay="true"
@@ -565,6 +558,16 @@
           @click="mainDrawer = !mainDrawer"
         )
         //- q-toolbar-title() Planet Express
+      q-layout-footer.fixed-bottom.q-nav-footer(
+      )
+        q-item
+          //- q-item-side(
+            icon="account balance wallet"
+            color="white"
+            )
+          q-item-main(
+            label="This platform is under active development"
+          ).text-center.text-white.text-weight-medium
     //- sidebar
 </template>
 
@@ -916,4 +919,17 @@ body
     height: auto
   width: auto
   height: auto
+</style>
+
+<style lang="stylus">
+@import '~variables'
+
+.q-nav-footer
+  max-width: 100%
+  margin: 5px
+  background-color $negative
+  // position: fixed !important
+.q-layout-page-container
+  padding-bottom: 0px !important
+
 </style>

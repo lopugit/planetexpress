@@ -33,7 +33,7 @@ export default [
     path: '/(|home)',
     name: 'planetExpress',
     component: planetExpress,
-    props: true
+    // props: true
   },
   { // Always leave this as last one
     path: '*',
