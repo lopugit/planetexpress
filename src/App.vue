@@ -720,8 +720,8 @@ export default {
 <style lang="sass">
 @import 'src/styles/vars'
 html
-  // cursor: url(statics/cursors/ms/aero_link2.cur), pointer
-  cursor: url(statics/cursors/ms/aero_arrow.cur) 2 2, auto
+  // cursor: url(/statics/cursors/ms/aero_link2.cur), pointer
+  cursor: url(/statics/cursors/ms/aero_arrow.cur) 2 2, auto
 #app
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
@@ -734,7 +734,7 @@ body
   margin: 0px
   &.cursor-pointer,
   &.cursor-pointer *
-    cursor: url(statics/cursors/ms/aero_link2.cur) 2 2, auto !important
+    cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, auto !important
 h1,h2
   font-weight: normal
 
@@ -754,32 +754,32 @@ a:-webkit-any-link,
 .btn-container
   color: $green
   text-decoration: none
-  // cursor: url(statics/cursors/ms/aero_link1.cur), pointer
+  // cursor: url(/statics/cursors/ms/aero_link1.cur), pointer
   // border-bottom: 1px dotted rgba($green, .5)
   +animate(all, 300ms, ease)
-  cursor: url(statics/cursors/ms/aero_arrow.cur) 2 2, auto
+  cursor: url(/statics/cursors/ms/aero_arrow.cur) 2 2, auto
   animation: 400ms hoverMaple linear infinite
   &:hover
     color: $greenhover
 
   +keyframes(hoverMaple)
     0%
-      cursor: url(statics/cursors/ms/aero_link2.cur) 2 2, pointer 
+      cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer 
     49%
-      cursor: url(statics/cursors/ms/aero_link2.cur) 2 2, pointer 
+      cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer 
     50% 
-      cursor: url(statics/cursors/ms/aero_link1.cur) 2 2, auto 
+      cursor: url(/statics/cursors/ms/aero_link1.cur) 2 2, auto 
     99% 
-      cursor: url(statics/cursors/ms/aero_link1.cur) 2 2, auto 
+      cursor: url(/statics/cursors/ms/aero_link1.cur) 2 2, auto 
     100%
-      cursor: url(statics/cursors/ms/aero_link2.cur) 2 2, pointer 
+      cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer 
   
 .fa-icon
   user-select: none
 button,
 .btn
   color: $green
-  // cursor: url(statics/cursors/ms/aero_link1.cur), pointer
+  // cursor: url(/statics/cursors/ms/aero_link1.cur), pointer
 .content-editable
   outline: none
   padding: 5px
