@@ -54,7 +54,7 @@ module.exports = function (ctx) {
             test: /\.(cur|ani)$/,
             loader: 'file-loader',
             options: {
-                name:  path.join(__dirname, 'src', 'assets/cursors/[name].[hash:7].[ext]'),
+                name:  path.join(__dirname, 'src', 'statics/cursors/[name].[hash:7].[ext]'),
             }
           },
         )
