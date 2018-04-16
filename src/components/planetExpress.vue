@@ -23,7 +23,7 @@ q-page
 								:moveSpeed="2"
 									shapeType="image"
 									:image=`{
-										src: "/assets/pixel-ship.png"
+										src: "statics/pixel-ship.png"
 									}`
 									:particlesNumber="3"
 									:particleSize="30"
@@ -81,7 +81,7 @@ q-page
 																					v-for="good in gosmart(address, 'goods.'+actionType, [])"
 																					)
 																					img(
-																						src="assets/box.png"
+																						src="statics/box.png"
 																						)
 																					q-chip(
 																						:floating="true"
@@ -102,7 +102,7 @@ q-page
 																					v-if="gosmart(address, 'goods.'+actionType, []).length < 1"
 																					)
 																					img(
-																						src="assets/box.png"
+																						src="statics/box.png"
 																						:style=`{
 																							opacity: .5
 																						}`

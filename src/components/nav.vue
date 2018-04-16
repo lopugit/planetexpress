@@ -4,7 +4,7 @@
     .nav-positioner(v-if="nav")
       .brand-container
         router-link(to="/home").brand {{nav.siteTitle}}
-          //- img(src="../assets/agoraLogoIcon.png")
+          //- img(src="statics/agoraLogoIcon.png")
       //- .debug {{ user }}
       .welcome-message-container(v-if="entity")
         .welcome-message 

@@ -1,9 +1,9 @@
 <template lang='pug'>
 	.home
-		//- img(style="max-width: 220px" src="../assets/agoraLogo.png")
+		//- img(style="max-width: 220px" src="statics/agoraLogo.png")
 		img.noselect(
 			style="transform: rotate(180deg); max-width: 100%" 
-			src="assets/logo.png" title="yes, this is the vue logo upside down"
+			src="statics/logo.png" title="yes, this is the vue logo upside down"
 			)
 			//- ref="logo"
 			//- @click="spinLogo"

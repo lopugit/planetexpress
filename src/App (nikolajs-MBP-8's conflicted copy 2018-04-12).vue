@@ -30,7 +30,7 @@
                 //-   width: 'auto'
                 //- }`
                 img(
-                  src="/assets/astronaut.png"
+                  src="statics/astronaut.png"
                   )
             q-item-main(
             )
@@ -49,13 +49,13 @@
               ).shadow-0
           q-item-separator
           q-collapsible(
-            avatar="/assets/box.png"
+            avatar="statics/box.png"
             label="Your Inventory"
             )
           q-item-separator
           q-collapsible(
             label="Tracking"
-            avatar="/assets/gps.png"
+            avatar="statics/gps.png"
             )
             //- q-item(
               )
@@ -105,7 +105,7 @@
           q-item-separator
           q-collapsible(
             label="Notifications"
-            avatar="/assets/bell.png"
+            avatar="statics/bell.png"
             )
             //- q-item(
               )
@@ -148,15 +148,15 @@
             // Driver Only
             q-collapsible(
               label="New Jobs"
-              avatar="/assets/a2b.png"
+              avatar="statics/a2b.png"
               )
           q-item-separator
           q-collapsible(
             label="Driver Hub"
-            avatar="/assets/van.png"
+            avatar="statics/van.png"
             )
             q-collapsible(
-              avatar="/assets/next-stop.png"
+              avatar="statics/next-stop.png"
               label="Next Stop"
               )
               q-item-side()
@@ -164,7 +164,7 @@
                 label="23 Conley St, Place Holder, 3174"
               )
             q-collapsible(
-              avatar="/assets/route.png"
+              avatar="statics/route.png"
               label="Current Route"
               )
               q-item(
@@ -189,56 +189,56 @@
                   label="Stop D"
                 )
             q-collapsible(
-              avatar="/assets/routes.png"
+              avatar="statics/routes.png"
               label="All Routes"
               )
             q-item(
               )
               q-item-side(
-                avatar="/assets/sleep.png"
+                avatar="statics/sleep.png"
               )
               q-item-main(
                 label="Rests"
                 )
               q-item-side(
-                avatar="/assets/question-yellow.png"
+                avatar="statics/question-yellow.png"
               ).q-verified-status
             q-collapsible(
-              avatar="/assets/van.png"
+              avatar="statics/van.png"
               label="Your vehicle"
               )
             q-item(
               )
               q-item-side(
-                avatar="/assets/box.png"
+                avatar="statics/box.png"
               )
               q-item-main(
                 label="Vehicle Inventory"
                 )
             q-collapsible(
               label="New Jobs"
-              avatar="/assets/a2b.png"
+              avatar="statics/a2b.png"
               ) 
           q-item-separator
           q-collapsible(
             label="Business Hub"
-            avatar="/assets/store.png"
+            avatar="statics/store.png"
             )
             q-item(
               )
               q-item-side(
-                avatar="/assets/store.png"
+                avatar="statics/store.png"
               )
               q-item-main(
                 label="Your store"
                 )
               q-item-side(
-                avatar="/assets/question-yellow.png"
+                avatar="statics/question-yellow.png"
               ).q-verified-status
             q-item(
               )
               q-item-side(
-                avatar="/assets/box.png"
+                avatar="statics/box.png"
               )
               q-item-main(
                 label="Store Inventory"
@@ -247,11 +247,11 @@
           q-item-separator
           q-collapsible(
             label="profile"
-            avatar="/assets/astronaut.png"
+            avatar="statics/astronaut.png"
             )
             q-collapsible(
               label="Current Location"
-              avatar="/assets/where.png"
+              avatar="statics/where.png"
             )
               
               //- q-item-separator()
@@ -259,7 +259,7 @@
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/devices.png"
+                    avatar="statics/devices.png"
                   )
                   q-item-main(
                     label="Available Devices"
@@ -269,52 +269,52 @@
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/smartphone.png"
+                    avatar="statics/smartphone.png"
                   )
                   q-item-main(
                     label="Samsung Galaxy S5"
                     sublabel="23 Conley St, Noble Park, 3174"
                     )
                   q-item-side(
-                    avatar="/assets/location-yes.png"
+                    avatar="statics/location-yes.png"
                   )
                 q-item-separator()
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/smartphone.png"
+                    avatar="statics/smartphone.png"
                   )
                   q-item-main(
                     label="Motorola X Play"
                     sublabel="40 Highett Rd, Moorabin"
                     )
                   q-item-side(
-                    avatar="/assets/location-no.png"
+                    avatar="statics/location-no.png"
                   )
                 q-item-separator()
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/computer-screen.png"
+                    avatar="statics/computer-screen.png"
                   )
                   q-item-main(
                     label="Macbook Pro"
                     )
                   q-item-side(
-                    avatar="/assets/location-no.png"
+                    avatar="statics/location-no.png"
                   )
                 q-item-separator()
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/tablet.png"
+                    avatar="statics/tablet.png"
                   )
                   q-item-main(
                     label="Nexus 7"
                     sublabel="23 Conley St, Noble Park, 3174"
                     )
                   q-item-side(
-                    avatar="/assets/location-no.png"
+                    avatar="statics/location-no.png"
                   )
                 q-item-separator()
                 q-item
@@ -324,201 +324,201 @@
                   )
             q-collapsible(
               label="Identity"
-              avatar="/assets/identification.png"
+              avatar="statics/identification.png"
               )
               
               //- q-collapsible(
-                avatar="/assets/license-plate.png"
+                avatar="statics/license-plate.png"
                 label="Identification"
                 )
               q-collapsible(
-                avatar="/assets/license.png"
+                avatar="statics/license.png"
                 label="Licenses"
                 )
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/license.png"
+                    avatar="statics/license.png"
                   )
                   q-item-main(
                     label="Car License"
                   )
                   q-item-side(
-                    avatar="/assets/wrong-thick.png"
+                    avatar="statics/wrong-thick.png"
                   ).q-verified-status
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/license.png"
+                    avatar="statics/license.png"
                   )
                   q-item-main(
                     label="Truck License"
                   )
                   q-item-side(
-                    avatar="/assets/wrong-thick.png"
+                    avatar="statics/wrong-thick.png"
                   ).q-verified-status
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/license.png"
+                    avatar="statics/license.png"
                   )
                   q-item-main(
                     label="Boat License"
                   )
                   q-item-side(
-                    avatar="/assets/wrong-thick.png"
+                    avatar="statics/wrong-thick.png"
                   ).q-verified-status
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/license.png"
+                    avatar="statics/license.png"
                   )
                   q-item-main(
                     label="PWC License"
                   )
                   q-item-side(
-                    avatar="/assets/wrong-thick.png"
+                    avatar="statics/wrong-thick.png"
                   ).q-verified-status
                 q-item(
                 )
                   q-item-side(
-                    avatar="/assets/license.png"
+                    avatar="statics/license.png"
                   )
                   q-item-main(
                     label="Aircraft License"
                   )
                   q-item-side(
-                    avatar="/assets/wrong-thick.png"
+                    avatar="statics/wrong-thick.png"
                   ).q-verified-status
               q-item(
               )
                 q-item-side(
-                  avatar="/assets/birth-certificate.png"
+                  avatar="statics/birth-certificate.png"
                 )
                 q-item-main(
                   label="Birth Certificate"
                 )
                 q-item-side(
-                  avatar="/assets/wrong-thick.png"
+                  avatar="statics/wrong-thick.png"
                 ).q-verified-status
               q-item(
               )
                 q-item-side(
-                  avatar="/assets/passport.png"
+                  avatar="statics/passport.png"
                 )
                 q-item-main(
                   label="Passport"
                 )
                 q-item-side(
-                  avatar="/assets/wrong-thick.png"
+                  avatar="statics/wrong-thick.png"
                 ).q-verified-status
               q-collapsible(
                 label="Documents"
-                avatar="/assets/documents.png"
+                avatar="statics/documents.png"
               )
                   q-item(
                   )
                     q-item-side(
-                      avatar="/assets/documents.png"
+                      avatar="statics/documents.png"
                     )
                     q-item-main(
                       label="Utility Bill 1"
                     )
                     q-item-side(
-                      avatar="/assets/wrong-thick.png"
+                      avatar="statics/wrong-thick.png"
                     ).q-verified-status
                   q-item(
                   )
                     q-item-side(
-                      avatar="/assets/documents.png"
+                      avatar="statics/documents.png"
                     )
                     q-item-main(
                       label="Utility Bill 2"
                     )
                     q-item-side(
-                      avatar="/assets/wrong-thick.png"
+                      avatar="statics/wrong-thick.png"
                     ).q-verified-status
                   q-item(
                   )
                     q-item-side(
-                      avatar="/assets/documents.png"
+                      avatar="statics/documents.png"
                     )
                     q-item-main(
                       label="Utility Bill 3"
                     )
                     q-item-side(
-                      avatar="/assets/wrong-thick.png"
+                      avatar="statics/wrong-thick.png"
                     ).q-verified-status
                 
               q-item(
                 )
                 q-item-side(
-                  avatar="/assets/license-plate.png"
+                  avatar="statics/license-plate.png"
                 )
                 q-item-main(
                   label="Registration"
                   )
                 q-item-side(
-                  avatar="/assets/wrong-thick.png"
+                  avatar="statics/wrong-thick.png"
                 ).q-verified-status
               q-item(
                 )
                 q-item-side(
-                  avatar="/assets/contract.png"
+                  avatar="statics/contract.png"
                 )
                 q-item-main(
                   label="Insurance"
                   )
                 q-item-side(
-                  avatar="/assets/wrong-thick.png"
+                  avatar="statics/wrong-thick.png"
                 ).q-verified-status
               q-item(
                 )
                 q-item-side(
-                  avatar="/assets/cap.png"
+                  avatar="statics/cap.png"
                 )
                 q-item-main(
                   label="Police Check"
                   )
                 q-item-side(
-                  avatar="/assets/wrong-thick.png"
+                  avatar="statics/wrong-thick.png"
                 ).q-verified-status
               q-item(
                 )
                 q-item-side(
-                  avatar="/assets/group.png"
+                  avatar="statics/group.png"
                 )
                 q-item-main(
                   label="Interview"
                   )
                 q-item-side(
-                  avatar="/assets/wrong-thick.png"
+                  avatar="statics/wrong-thick.png"
                 ).q-verified-status
               q-collapsible(
-                avatar="/assets/certificate.png"
+                avatar="statics/certificate.png"
                 label="Qualifications"
               )
                 q-item(
                   )
                   q-item-side(
-                    avatar="/assets/certificate.png"
+                    avatar="statics/certificate.png"
                   )
                   q-item-main(
                     label="Working with Children"
                     )
                   q-item-side(
-                    avatar="/assets/wrong-thick.png"
+                    avatar="statics/wrong-thick.png"
                   ).q-verified-status
                 q-item(
                   )
                   q-item-side(
-                    avatar="/assets/certificate.png"
+                    avatar="statics/certificate.png"
                   )
                   q-item-main(
                     label="RSA"
                     )
                   q-item-side(
-                    avatar="/assets/wrong-thick.png"
+                    avatar="statics/wrong-thick.png"
                   ).q-verified-status
             
           q-item-separator
@@ -558,7 +558,7 @@
           size="1.2rem"
           ).shadow-0
         img(
-          src="/assets/pe-logo.png"
+          src="statics/pe-logo.png"
           @click="mainDrawer = !mainDrawer"
         )
         //- q-toolbar-title() Planet Express
@@ -714,8 +714,8 @@ export default {
 <style lang="sass">
 @import 'src/styles/vars'
 html
-  // cursor: url(/assets/cursors/ms/aero_link2.cur), pointer
-  cursor: url(/assets/cursors/ms/aero_arrow.cur) 2 2, auto
+  // cursor: url(statics/cursors/ms/aero_link2.cur), pointer
+  cursor: url(statics/cursors/ms/aero_arrow.cur) 2 2, auto
 #app
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
@@ -728,7 +728,7 @@ body
   margin: 0px
   &.cursor-pointer,
   &.cursor-pointer *
-    cursor: url(/assets/cursors/ms/aero_link2.cur) 2 2, auto !important
+    cursor: url(statics/cursors/ms/aero_link2.cur) 2 2, auto !important
 h1,h2
   font-weight: normal
 
@@ -748,32 +748,32 @@ a:-webkit-any-link,
 .btn-container
   color: $green
   text-decoration: none
-  // cursor: url(/assets/cursors/ms/aero_link1.cur), pointer
+  // cursor: url(statics/cursors/ms/aero_link1.cur), pointer
   // border-bottom: 1px dotted rgba($green, .5)
   +animate(all, 300ms, ease)
-  cursor: url(/assets/cursors/ms/aero_arrow.cur) 2 2, auto
+  cursor: url(statics/cursors/ms/aero_arrow.cur) 2 2, auto
   animation: 400ms hoverMaple linear infinite
   &:hover
     color: $greenhover
 
   +keyframes(hoverMaple)
     0%
-      cursor: url(/assets/cursors/ms/aero_link2.cur) 2 2, pointer 
+      cursor: url(statics/cursors/ms/aero_link2.cur) 2 2, pointer 
     49%
-      cursor: url(/assets/cursors/ms/aero_link2.cur) 2 2, pointer 
+      cursor: url(statics/cursors/ms/aero_link2.cur) 2 2, pointer 
     50% 
-      cursor: url(/assets/cursors/ms/aero_link1.cur) 2 2, auto 
+      cursor: url(statics/cursors/ms/aero_link1.cur) 2 2, auto 
     99% 
-      cursor: url(/assets/cursors/ms/aero_link1.cur) 2 2, auto 
+      cursor: url(statics/cursors/ms/aero_link1.cur) 2 2, auto 
     100%
-      cursor: url(/assets/cursors/ms/aero_link2.cur) 2 2, pointer 
+      cursor: url(statics/cursors/ms/aero_link2.cur) 2 2, pointer 
   
 .fa-icon
   user-select: none
 button,
 .btn
   color: $green
-  // cursor: url(/assets/cursors/ms/aero_link1.cur), pointer
+  // cursor: url(statics/cursors/ms/aero_link1.cur), pointer
 .content-editable
   outline: none
   padding: 5px
