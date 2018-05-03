@@ -14,13 +14,16 @@ q-page
 									:opacity="0.7"
 									:particlesNumber="35"
 									:particleSize="4"
+									:lineOpacity="0.3"
 									:lineLinked="false"
+									:hoverEffect="true"
+									hoverMode="grab"
 								)
 					.particles-container
 						.particles-positioner
 							.particles
 								vue-particles.vue-particles(
-								:moveSpeed="2"
+									:moveSpeed="2"
 									shapeType="image"
 									:image=`{
 										src: "statics/pixel-ship.png"
@@ -36,6 +39,7 @@ q-page
 										.addresses
 											.address-container(
 												v-for="(address, index) in addresses"
+												v-if="address"
 												)
 												.address-positioner(
 													v-if=`index == 0 || interactionStarted`
@@ -69,6 +73,7 @@ q-page
 																		.goods-positioner
 																			draggable(
 																				v-model=`address.goods[actionType]`
+																				v-if="gosmart(address, 'goods.'+actionType, [])"
 																				:options=`{
 																					group: {
 																						name: 'goods',
@@ -185,8 +190,7 @@ export default {
 			},
 			addresses: this.$store.getters.latestCached,
 			mapboxglAccessToken: "pk.eyJ1IjoibG9wdSIsImEiOiJjamFydTVhc3QxNjRtMzNwaHEzNmJ1bW0zIn0.Wm7f-1eyd7K5AT3WN7fRDw",
-			funCounter: 1,
-			interactionStarted: this.$store.state.interactionStarted
+			funCounter: 1
 		}
 	},
 	sockets: {
@@ -208,16 +212,13 @@ export default {
 			this.addAddress({
 				addressType: 'addresses'
 				})
-			this.addAddress({
-				addressType: 'addresses'
-				})
 		}
 		if(navigator.geolocation && !this.pickupAddress){
 			navigator.geolocation.getCurrentPosition(pos=>{
 				this.getAddressFromCoords(pos.coords.longitude, pos.coords.latitude)
 				.then(res=>{
 					this.setsmart(this, 'addresses.0.address', res)
-					this.$store.commit('interactionStarted', true)
+					this.interactionStarted = true
 				})
 				.catch(res=>{
 					console.error(res)
@@ -229,21 +230,19 @@ export default {
 		cacheCurrentAddresses(){
 			this.$store.commit('addCachedState', this.addresses)
 		},
-		addAddress({address={address: undefined, goods: {}, uuid: this.$uuid.v4()}, actionSource}={}){
+		addAddress({address={names: ['address'], address: undefined, goods: {}, uuid: this.$uuid.v4()}, actionSource}={}){
 			if(address){
-				if(this.interactionStarted || actionSource !== "user"){
-					this.pushThing({
-						option: address,
-						list: this.gosmart(this, 'addresses', []),
-						obj: true,
-						keys: ['uuid', 'address']
-					})
-					this.cacheCurrentAddresses()
-				}
-				if(actionSource == "user"){
-					this.$store.commit('interactionStarted', true)
-				}
+				this.pushThing({
+					option: address,
+					list: this.gosmart(this, 'addresses', []),
+					obj: true,
+					keys: ['uuid'],
+				})
 				
+				this.cacheCurrentAddresses() // caches address into vuex state
+				if(!this.interactionStarted){ // changes state value for user interaction started to
+					this.interactionStarted = true
+				}
 			}
 		},
 		removeAddress(address, index, actionSource){
@@ -273,18 +272,20 @@ export default {
 							this.addresses.splice(index, 1)
 							this.$q.notify({
 								message: 'easy',
+								color: 'positive',
 								timeout: 1000
 								})
 						})
 						.catch(()=>{
-							this.$q.notify({
-								message: 'that was lucky ;)',
-								timeout: 1000
-								})
+							// this.$q.notify({
+							// 	message: 'that was lucky ;)',
+							// 	color: 'positive',
+							// 	timeout: 1000
+							// 	})
 						})
 					}
 				}
-				this.$store.commit('interactionStarted', true)
+				this.interactionStarted = true
 				this.cacheCurrentAddresses()
 				// this.popThing({
 				//   option: address,
@@ -307,6 +308,7 @@ export default {
 				this.$options.sockets['giveUniqueName'] = data => {
 					if(data.funCounter == funCounter){
 						let good = {
+							names: ['good'],
 							name: data.name,
 							uuid: data.uuid
 						}
@@ -404,13 +406,19 @@ export default {
 		selectAddress(item, index, which, actionSource){
 			if(item && (index || index == 0) && which){
 				this.setsmart(this, which+"."+index+".address", item.label)
-				if(!this.interactionStarted){
-					this.$store.commit('interactionStarted', true)
-				}
+				this.interactionStarted = true
 			}
 		}
 	},
 	computed: {
+		interactionStarted: {
+			get(){
+				return this.$store.state.app.interactionStarted
+			},
+			set(val){
+				this.$store.commit('interactionStarted', val)
+			}
+		}
 	},
 	props: {
 		"siteTitle": {}
@@ -522,9 +530,9 @@ export default {
 									min-height: 24px !important
 									padding-top: 0px !important
 								.q-if-label
-									top: 3px
+									// top: 3px
 								.q-if-label-above
-									transform: scale(0.75) translate(0, -21px)
+									// transform: scale(0.75) translate(0, -21px)
 								input
 									width: 280px
 									&::selection

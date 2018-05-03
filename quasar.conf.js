@@ -4,6 +4,14 @@ var fs = require('fs')
 // var utils = require('utils')
 
 module.exports = function (ctx) {
+	var apiDomain = '"bld"'
+	if(process.env.api == 'dev'){
+		apiDomain = '"src"'
+	} else if (process.env.api == 'build'){
+		apiDomain = '"bld"'
+	} else if (process.env.api == 'prod'){
+		apiDomain = '"com"'
+	}
   return {
     // app plugins (/src/plugins)
     plugins: [
@@ -22,7 +30,15 @@ module.exports = function (ctx) {
       'vue-uuid',
       'eventHub',
       'globalCss',
-      'vue-particles'
+			'vue-particles',
+			'facebook-login',
+			'google-login',
+			'firebase',
+			'firebaseui',
+			'firestore',
+			'env',
+			'smarts',
+			'ua-parser'
     ],
     css: [
       'app.styl'
@@ -43,7 +59,10 @@ module.exports = function (ctx) {
       scopeHoisting: true,
       vueRouterMode: 'history',
       gzip: true,
-      analyze: true,
+			analyze: true,
+			env: {
+				apiDomain: apiDomain
+			},
       // extractCSS: false,
       // useNotifier: false,
       extendWebpack (cfg) {

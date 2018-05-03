@@ -1,590 +1,18 @@
 <template lang="pug">
 	#q-app(ref="app")
 		//- navbar(:siteTitle="siteTitle")
-		q-layout(
-			view="HHH Lpr FFF"
-			)
-			q-layout-drawer(
-				side="left"
-				v-model="mainDrawer"
-				:overlay="true"
-				).z-top
-				q-list
-					q-item(
-						)
-						q-item-side
-							q-item-tile(
-								avatar
-								sparse
-								@click="mainDrawer = !mainDrawer"
-								).q-item-tile-profile-picture
-								//- :style=`{
-								//-   height: '50px',
-								//-   width: 'auto'
-								//- }`
-								img(
-									src="statics/astronaut.png"
-									)
-						q-item-main(
-						)
-							q-item-tile(
-								label
-							) Bowie
-							q-item-tile(
-								sublabel
-								size=".5rem"
-								) Star Man
-						q-item-side(
-							)
-							q-btn(
-								icon="close"
-								@click="mainDrawer = !mainDrawer"
-							).shadow-0
-					q-item-separator
-					q-collapsible(
-						label="Tracking"
-						avatar="statics/gps.png"
-						)
-						//- q-item(
-							)
-							q-item-main(
-								label="Requested Jobs"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="Awaiting Pickup"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="Picked Up"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="En Route"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="Delivered"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="Routes"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="ETA's"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="Your Pilots"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="View Map"
-								)
-					q-item-separator
-					q-collapsible(
-						label="Notifications"
-						avatar="statics/bell.png"
-						)
-						//- q-item(
-							)
-							q-item-main(
-								label="Requested Jobs"
-								)
-						q-collapsible(
-							label="Messages"
-							)
-						q-item(
-							)
-							q-item-main(
-								label="Picked Up"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="Delivered"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="ETA's"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="Delays"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="Discounts"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="Surges"
-								)
-						// Driver Only
-						q-collapsible(
-							label="New Jobs"
-							avatar="statics/a2b.png"
-							)
-					q-item-separator
-					q-collapsible(
-						label="Driver Hub"
-						avatar="statics/van.png"
-						)
-						q-collapsible(
-							avatar="statics/next-stop.png"
-							label="Next Stop"
-							)
-							q-item-side()
-							q-item-main(
-								label="23 Conley St, Place Holder, 3174"
-							)
-						q-collapsible(
-							avatar="statics/route.png"
-							label="Current Route"
-							)
-							q-item(
-							)
-								q-item-main(
-									label="Stop A"
-								)
-							q-item(
-
-							)
-								q-item-main(
-									label="Stop B"
-								)
-							q-item(
-							)
-								q-item-main(
-									label="Stop C (break)"
-								)
-							q-item(
-							) 
-								q-item-main(
-									label="Stop D"
-								)
-						q-collapsible(
-							avatar="statics/routes.png"
-							label="All Routes"
-							)
-						q-item(
-							)
-							q-item-side(
-								avatar="statics/sleep.png"
-							)
-							q-item-main(
-								label="Rests"
-								)
-							q-item-side(
-								avatar="statics/question-yellow.png"
-							).q-verified-status
-						q-collapsible(
-							avatar="statics/van.png"
-							label="Your vehicle"
-							)
-						q-item(
-							)
-							q-item-side(
-								avatar="statics/box.png"
-							)
-							q-item-main(
-								label="Current Inventory"
-								)
-							q-item-side(
-								avatar="statics/question-yellow.png"
-							).q-verified-status
-						q-collapsible(
-							label="New Jobs"
-							avatar="statics/a2b.png"
-							) 
-					q-item-separator
-					q-collapsible(
-						label="profile"
-						avatar="statics/astronaut.png"
-					)
-						q-collapsible(
-							label="Current Location"
-							avatar="statics/where.png"
-						)
-							
-							//- q-item-separator()
-							q-list()
-								q-item(
-								)
-									q-item-side(
-										avatar="statics/devices.png"
-									)
-									q-item-main(
-										label="Available Devices"
-										sublabel="Link a Device"
-										)
-								q-item-separator()
-								q-item(
-								)
-									q-item-side(
-										avatar="statics/smartphone.png"
-									)
-									q-item-main(
-										label="Samsung Galaxy S5"
-										sublabel="23 Conley St, Noble Park, 3174"
-										)
-									q-item-side(
-										avatar="statics/location-yes.png"
-									)
-								q-item-separator()
-								q-item(
-								)
-									q-item-side(
-										avatar="statics/smartphone.png"
-									)
-									q-item-main(
-										label="Motorola X Play"
-										sublabel="40 Highett Rd, Moorabin"
-										)
-									q-item-side(
-										avatar="statics/location-no.png"
-									)
-								q-item-separator()
-								q-item(
-								)
-									q-item-side(
-										avatar="statics/computer-screen.png"
-									)
-									q-item-main(
-										label="Macbook Pro"
-										)
-									q-item-side(
-										avatar="statics/location-no.png"
-									)
-								q-item-separator()
-								q-item(
-								)
-									q-item-side(
-										avatar="statics/tablet.png"
-									)
-									q-item-main(
-										label="Nexus 7"
-										sublabel="23 Conley St, Noble Park, 3174"
-										)
-									q-item-side(
-										avatar="statics/location-no.png"
-									)
-								q-item-separator()
-								q-item
-									q-btn(
-										label="add a device"
-										wide
-									)
-						q-collapsible(
-							label="Identity"
-							avatar="statics/identification.png"
-							)
-							
-							//- q-collapsible(
-								avatar="statics/license-plate.png"
-								label="Identification"
-								)
-							q-collapsible(
-								avatar="statics/license.png"
-								label="Licenses"
-								)
-								q-item(
-								)
-									q-item-side(
-										avatar="statics/license.png"
-									)
-									q-item-main(
-										label="Car License"
-									)
-									q-item-side(
-										avatar="statics/wrong-thick.png"
-									).q-verified-status
-								q-item(
-								)
-									q-item-side(
-										avatar="statics/license.png"
-									)
-									q-item-main(
-										label="Truck License"
-									)
-									q-item-side(
-										avatar="statics/wrong-thick.png"
-									).q-verified-status
-								q-item(
-								)
-									q-item-side(
-										avatar="statics/license.png"
-									)
-									q-item-main(
-										label="Boat License"
-									)
-									q-item-side(
-										avatar="statics/wrong-thick.png"
-									).q-verified-status
-								q-item(
-								)
-									q-item-side(
-										avatar="statics/license.png"
-									)
-									q-item-main(
-										label="PWC License"
-									)
-									q-item-side(
-										avatar="statics/wrong-thick.png"
-									).q-verified-status
-								q-item(
-								)
-									q-item-side(
-										avatar="statics/license.png"
-									)
-									q-item-main(
-										label="Aircraft License"
-									)
-									q-item-side(
-										avatar="statics/wrong-thick.png"
-									).q-verified-status
-							q-item(
-							)
-								q-item-side(
-									avatar="statics/birth-certificate.png"
-								)
-								q-item-main(
-									label="Birth Certificate"
-								)
-								q-item-side(
-									avatar="statics/wrong-thick.png"
-								).q-verified-status
-							q-item(
-							)
-								q-item-side(
-									avatar="statics/passport.png"
-								)
-								q-item-main(
-									label="Passport"
-								)
-								q-item-side(
-									avatar="statics/wrong-thick.png"
-								).q-verified-status
-							q-collapsible(
-								label="Documents"
-								avatar="statics/documents.png"
-							)
-									q-item(
-									)
-										q-item-side(
-											avatar="statics/documents.png"
-										)
-										q-item-main(
-											label="Utility Bill 1"
-										)
-										q-item-side(
-											avatar="statics/wrong-thick.png"
-										).q-verified-status
-									q-item(
-									)
-										q-item-side(
-											avatar="statics/documents.png"
-										)
-										q-item-main(
-											label="Utility Bill 2"
-										)
-										q-item-side(
-											avatar="statics/wrong-thick.png"
-										).q-verified-status
-									q-item(
-									)
-										q-item-side(
-											avatar="statics/documents.png"
-										)
-										q-item-main(
-											label="Utility Bill 3"
-										)
-										q-item-side(
-											avatar="statics/wrong-thick.png"
-										).q-verified-status
-								
-							q-item(
-								)
-								q-item-side(
-									avatar="statics/license-plate.png"
-								)
-								q-item-main(
-									label="Registration"
-									)
-								q-item-side(
-									avatar="statics/wrong-thick.png"
-								).q-verified-status
-							q-item(
-								)
-								q-item-side(
-									avatar="statics/contract.png"
-								)
-								q-item-main(
-									label="Insurance"
-									)
-								q-item-side(
-									avatar="statics/wrong-thick.png"
-								).q-verified-status
-							q-item(
-								)
-								q-item-side(
-									avatar="statics/cap.png"
-								)
-								q-item-main(
-									label="Police Check"
-									)
-								q-item-side(
-									avatar="statics/wrong-thick.png"
-								).q-verified-status
-							q-item(
-								)
-								q-item-side(
-									avatar="statics/group.png"
-								)
-								q-item-main(
-									label="Interview"
-									)
-								q-item-side(
-									avatar="statics/wrong-thick.png"
-								).q-verified-status
-							q-collapsible(
-								avatar="statics/certificate.png"
-								label="Qualifications"
-							)
-								q-item(
-									)
-									q-item-side(
-										avatar="statics/certificate.png"
-									)
-									q-item-main(
-										label="Working with Children"
-										)
-									q-item-side(
-										avatar="statics/wrong-thick.png"
-									).q-verified-status
-								q-item(
-									)
-									q-item-side(
-										avatar="statics/certificate.png"
-									)
-									q-item-main(
-										label="RSA"
-										)
-									q-item-side(
-										avatar="statics/wrong-thick.png"
-									).q-verified-status
-								
-								
-					q-item-separator(
-						)
-					q-collapsible(
-						label="Business Hub"
-						avatar="statics/store.png"
-						)
-						q-item(
-							)
-							q-item-side(
-								avatar="statics/store.png"
-							)
-							q-item-main(
-								label="Your store"
-								)
-							q-item-side(
-								avatar="statics/question-yellow.png"
-							).q-verified-status
-						q-item(
-							)
-							q-item-side(
-								avatar="statics/box.png"
-							)
-							q-item-main(
-								label="Current Inventory"
-								)
-							q-item-side(
-								avatar="statics/question-yellow.png"
-							).q-verified-status
-						
-					q-item-separator
-					q-collapsible(
-						label="Settings"
-						)
-					q-item-separator
-					q-collapsible(
-						label="More"
-						)
-						q-item(
-							)
-							q-item-main(
-								label="Terms and Conditions"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="Insurance"
-								)
-						q-item(
-							)
-							q-item-main(
-								label="Legal"
-								)
-					//- q-toolbar-title() Planet Express
-			//- q-layout-header.fixed-top
-			q-page-container.q-pt-none
-				router-view.router-view
-			q-toolbar.fixed-top.q-nav-toolbar(
-				color="primary"
-				:overlay="true"
-				)
-				q-btn(
-					icon="menu"
-					@click="mainDrawer = !mainDrawer"
-					size="1.2rem"
-					).shadow-0
-				img(
-					src="statics/pe-logo.png"
-					@click="mainDrawer = !mainDrawer"
-					)
-				//- q-toolbar-title() Planet Express
-			//- q-layout-footer.fixed-bottom.q-nav-footer(
-				)
-				q-item
-					//- q-item-side(
-						icon="account balance wallet"
-						color="white"
-						)
-					q-item-main(
-						label="This platform is under active development"
-					).text-center.text-white.text-weight-medium
+		router-view
 		//- sidebar
 </template>
 
 <script>
-import navbar from '@/components/nav'
-import sidebar from '@/components/sidebar'
 import smartOpts from '@/components/mixins/smartOpts'
 export default {
 	mixins: [smartOpts],
 	name: 'app',
 	data(){
 		return {
-			siteTitle: 'alopu',
-			entity: this.$store.state.entity,
-			uuid: this._uid,
-			pageHistory: this.$store.state.pageHistory,
-			mainDrawer: false
+			siteTitle: 'Planet Express'
 		}
 	},
 	sockets: {
@@ -610,7 +38,6 @@ export default {
 				// this.$router.go('/' + (this.pageHistory.length > 0 ? this.pageHistory[this.pageHistory.length-1] : ''))
 				// this.$router.go('/' + (this.pageHistory.length > 0 ? this.pageHistory[this.pageHistory.length-1] : ''))
 			} else {
-				console.log('resetting entity')
 				this.$store.commit('entitySet',  {
 					type: 'temporary',
 					identity: 'anonymous',
@@ -630,48 +57,66 @@ export default {
 				// console.log("setting reamls in store")
 				// console.log(data)
 				this.$store.commit('SetRealms', data.realms)
-				// this.$store.state.realms = ret.realms
+				// this.$store.state.app.realms = ret.realms
 			}
 		}
 	},
-	created(){
-		let that = this
-		var down
-		var up
-		var waitdown
-		var waitup
-		var movingTimerDown
-		var movingTimerUp
-		var lastUpTimer = new timer(()=>{}, 0)
-		var lastDownTimer = new timer(()=>{}, 0)
-		var count = 0
-		var mouseClick = function(){
-			// console.lgog('count click')
-			let lastUp = lastUpTimer.getTimeLeft()
-			new timer(()=>{
-				document.body.classList.add('cursor-pointer')
-			}, lastUp)
-			lastDownTimer = new timer(()=>{}, lastUp+200)
-		}
-		var mouseUp = function(){
-			// console.lgog('count release')
-			let lastDown = lastDownTimer.getTimeLeft()
-			new timer(()=>{
-				document.body.classList.remove('cursor-pointer')
-			}, lastDown)
-			lastUpTimer = new timer(()=>{}, lastDown+100)
-			count++
-			// console.lgog(count)
-		}
-		document.body.onmousedown = mouseClick
-		document.body.onmouseup = mouseUp
-		console.log("%s was created", this.siteTitle)
-		this.$socket.emit('getRealms', {
-			id: this.uuid,
-			find: {},
-			count: Infinity
-		})
-		function timer(callback, delay) {
+	beforeCreated(){
+		},
+	created(){		
+		/** inits */
+			/** initiate unique client id */
+				this.$store.dispatch('manifestClientId', this.$uuid.v4())
+			/** entity state */
+				this.$store.dispatch('buildDefaultEntity')
+			/** userAgent */
+				this.$store.dispatch('userAgentSync', navigator.userAgent)
+			/** cursor */
+				this.initCursor()
+			/** env */
+				this.$store.commit('env', this.$env)
+			/** sync this device with entity devices */
+				this.$store.dispatch('syncDevice', 'this')
+	},
+	methods: {
+		initCursor(){
+			let that = this
+			var down
+			var up
+			var waitdown
+			var waitup
+			var movingTimerDown
+			var movingTimerUp
+			var lastUpTimer = new timer(()=>{}, 0)
+			var lastDownTimer = new timer(()=>{}, 0)
+			var count = 0
+			var mouseClick = function(){
+				// console.lgog('count click')
+				let lastUp = lastUpTimer.getTimeLeft()
+				new timer(()=>{
+					document.body.classList.add('cursor-pointer')
+				}, lastUp)
+				lastDownTimer = new timer(()=>{}, lastUp+200)
+			}
+			var mouseUp = function(){
+				// console.lgog('count release')
+				let lastDown = lastDownTimer.getTimeLeft()
+				new timer(()=>{
+					document.body.classList.remove('cursor-pointer')
+				}, lastDown)
+				lastUpTimer = new timer(()=>{}, lastDown+100)
+				count++
+				// console.lgog(count)
+			}
+			document.body.onmousedown = mouseClick
+			document.body.onmouseup = mouseUp
+			console.log("%s was created", this.siteTitle)
+			this.$socket.emit('getRealms', {
+				id: this.uuid,
+				find: {},
+				count: Infinity
+			})
+			function timer(callback, delay) {
 				var id, started, remaining = delay, running
 
 				this.start = function() {
@@ -700,19 +145,35 @@ export default {
 				}
 
 				this.start()
+			}
 		}
 	},
 	watch: {
-		'$store.state.entity': function(){
-			this.entity = this.$store.state.entity
-		},
-		'$store.state.pageHistory': function(){
-			this.pageHistory = this.$store.state.pageHistory
-		},
 	},
 	components: {
-		navbar,
-		sidebar
+	},
+	computed: {
+		navigator: {
+			get(){
+				return navigator
+			}
+		},
+		entity: {
+			get(){
+				return this.$store.state.alopu.entity
+			},
+			set(val){
+				this.$store.commit('entity', {entity: val})
+			}
+		},
+		pageHistory: {
+			get(){
+				return this.$store.state.app.pageHistory
+			},
+			set(val){
+				this.$store.commit('pageHistory', val)
+			}
+		},
 	}
 }
 </script>

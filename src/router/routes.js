@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from 'src/components/home'
 import realm from 'src/components/realm'
 import realms from 'src/components/realms'
 import thing from 'src/components/thing'
@@ -20,6 +19,7 @@ import alopu from 'src/components/alopu'
 import object from 'src/components/object'
 import array from 'src/components/array'
 import planetExpress from 'src/components/planetExpress'
+import currentLocationNav from 'src/components/current-location-nav'
 
 import test1 from 'src/components/test1'
 
@@ -30,11 +30,21 @@ export default [
   //   component: test1
   // },
   {
-    path: '/(|home)',
-    name: 'planetExpress',
-    component: planetExpress,
+		path: '/(|home)',
+		component: () => import('layouts/default'),
+    children: [
+      {
+				name: 'planetExpress', 
+				path: '', component: () => import('components/planetExpress') 
+			},
+			{
+				path: '/logout',
+				component: () => import('components/logout'),
+				
+			}
+    ]
     // props: true
-  },
+	},
   { // Always leave this as last one
     path: '*',
     component: () => import('pages/404')
