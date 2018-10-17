@@ -1,0 +1,422 @@
+// App Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Stylus variables found in Quasar's source Stylus files. Setting
+// variables before Quasar's Stylus will use these variables rather than
+// Quasar's default Stylus variable values. Stylus variables specific
+// to the themes belong in either the variables.ios.styl or variables.mat.styl files.
+
+// Check documentation for full list of Quasar variables
+
+
+// App Shared Color Variables
+// --------------------------------------------------
+// It's highly recommended to change the default colors
+// to match your app's branding.
+
+$primary   = #42b983
+// $secondary = #4dd798
+// $thirdiary = #ffdebd
+$secondary = #3374B1
+$tertiary  = #555
+$white     = #F2F2F2
+
+$neutral   = #E0E1E2
+$positive  = #21BA45
+// $negative  = #dc0000
+$negative = #D12A27
+$info      = #31CCEC
+$warning   = #F2C037
+$gentleGrey = #d5d5d6
+$strongGrey = #acacae
+$hardGrey = $strongGrey
+$gentleGrey2 = #c6cbde
+$strongGrey2 = #8189a9
+$hardGrey2 = $strongGrey2
+//Mixins
+animate(who, time, ease-type)
+	-webkit-transition: who time ease-type
+	-moz-transition: who time ease-type
+	-ms-transition: who time ease-type
+	transition: who time ease-type
+
+animations(who, time, ease-type, recursiveAnimation)
+	-webkit-transition: who time ease-type, recursiveAnimation
+	-moz-transition: who time ease-type, recursiveAnimation
+	-ms-transition: who time ease-type, recursiveAnimation
+	transition: who time ease-type, recursiveAnimation
+keyframes(name)
+	@-webkit-keyframes #{name}
+		@content
+	@-moz-keyframes #{name}
+		@content
+	@-ms-keyframes #{name}
+		@content
+	@keyframes #{name}
+		@content
+	
+.flex,
+.q-flex
+	display flex
+.q-align-start
+	align-items: flex-start
+.q-align-center
+	align-items: center
+.q-align-end
+	align-items: flex-end
+.q-justify-start
+	justify-content: flex-start
+.q-justify-center
+	justify-content: center
+.q-justify-end
+	justify-content: flex-end
+.q-flex-column
+	flex-direction: column
+.q-flex-row
+	flex-direction: row
+.q-centered
+	text-align: center
+.q-mt-auto
+	margin-top auto
+.q-ml-auto
+	margin-left auto
+.q-mr-auto
+	margin-right auto
+.q-mb-auto
+	margin-bottom auto
+.q-mt-no,.q-mt-none
+	margin-top 0px
+.q-ml-no,.q-ml-none
+	margin-left 0px
+.q-mr-no,.q-mr-none
+	margin-right 0px
+.q-ma-no,.q-ma-none
+	margin: 0px
+.q-mb-no,.q-mb-none
+	margin-bottom 0px
+.q-mt-xsmd
+	margin-top 10px
+.q-ml-xsmd
+	margin-left 10px
+.q-mr-xsmd
+	margin-right 10px
+.q-mb-xsmd
+	margin-bottom 10px
+.q-mt-smd
+	margin-top 12px
+.q-ml-smd
+	margin-left 12px
+.q-mr-smd
+	margin-right 12px
+.q-mb-smd
+	margin-bottom 12px
+
+
+.q-pt-no,.q-pt-none
+	padding-top 0px
+.q-pl-no,.q-pl-none
+	padding-left 0px
+.q-pr-no,.q-pr-none
+	padding-right 0px
+.q-pb-no,.q-pb-none
+	padding-bottom 0px
+.q-pa-no,.q-pa-none
+	padding: 0px
+.q-pt-xsmd
+	padding-top 10px
+.q-pl-xsmd
+	padding-left 10px
+.q-pr-xsmd
+	padding-right 10px
+.q-pb-xsmd
+	padding-bottom 10px
+.q-pt-smd
+	padding-top 12px
+.q-pl-smd
+	padding-left 12px
+.q-pr-smd
+	padding-right 12px
+.q-pb-smd
+	padding-bottom 12px
+
+.max-h-100
+	max-height: 100%
+
+.no-border,
+.bd-no,
+.no-bd,
+.border-no,
+.border-none
+	border: none
+.br-none,
+.br-no
+	border-radius 0px !important
+.border-1
+	border 1px solid lighten($gentleGrey2, 8)
+	
+.icon-avatar
+	& img
+		width: 24px
+		height auto
+.bg-none
+	background rgba(0,0,0,0) !important
+	
+.q-img-xxxs,
+.q-img-xxxs>img,
+.q-img-xxxs>.q-collapsible-inner>.q-item>.q-item-side>img
+	width 12px
+	height auto
+.q-img-xxs,
+.q-img-xxs>img,
+.q-img-xxs>.q-collapsible-inner>.q-item>.q-item-side>img
+	width 18px
+	height auto
+.q-img-xs,
+.q-img-xs>img,
+.q-img-xs>.q-collapsible-inner>.q-item>.q-item-side>img
+	width 24px
+	height auto
+.q-img-sm,
+.q-img-sm>img,
+.q-img-sm>.q-collapsible-inner>.q-item>.q-item-side>img
+	width 30px
+	height auto
+.q-img-md,
+.q-img-md>img,
+.q-img-md>.q-collapsible-inner>.q-item>.q-item-side>img
+	width 36px
+	height auto
+.q-img-lg,
+.q-img-lg>img,
+.q-img-lg>.q-collapsible-inner>.q-item>.q-item-side>img
+	width 42px
+	height auto
+.q-img-xl,
+.q-img-xl>img,
+.q-img-xl>.q-collapsible-inner>.q-item>.q-item-side>img
+	width 48px
+	height auto
+	
+
+.q-if
+	display: flex
+	align-items: center
+	flex-direction: row
+	justify-content: center
+	&.q-search
+		padding-top: 14px !important 
+
+.q-if-focused
+	.q-if-label
+		color $strongGrey2 !important
+.q-if-inner
+	padding-top: 0px !important
+	// display: flex
+	// align-items: center
+	// justify-content: center
+.q-input-target
+	margin-top: 12px !important
+
+.q-if-label,
+.q-search .q-if-label
+	top: 50%
+	transform scale(1) translate(0, -55%)
+	color $gentleGrey2 !important
+.q-if-label-above,
+.q-search .q-if-label-above
+	transform scale(.7) translate(0, -150%)
+.q-if-control
+	font-size: 18px
+	margin-top: auto
+	margin-bottom: auto
+	// margin: auto
+.q-if-inverted
+	padding-top: 6px
+	padding-bottom: 6px
+
+.q-square-image,
+.q-square-img
+	border-radius: 0px
+	&>img
+		border-radius: 0px
+	&.q-collapsible
+		>.q-collapsible-inner
+			>.q-item
+				>.q-item-side
+					>img
+						border-radius: 0px
+.q-border-round-xs,
+.q-br-rd-xs
+	border-radius: 2px
+	&>img
+		border-radius: 2px
+.q-border-round-sm,
+.q-br-rd-sm
+	border-radius: 4px
+	&>img
+		border-radius: 4px
+.q-border-round-smd,
+.q-br-rd-smd
+	border-radius: 6px
+	&>img
+		border-radius: 6px
+.q-border-round-md,
+.q-br-rd-md
+	border-radius: 8px
+	&>img
+		border-radius: 8px
+.q-border-round-lg,
+.q-br-rd-lg
+	border-radius: 10px
+	&>img
+		border-radius: 10px
+	
+.q-bordera-round-xs,
+.q-bra-rd-xs
+	border-radius: 2px
+	&>img
+		border-radius: 2px
+.q-bordera-round-sm,
+.q-bra-rd-sm
+	border-radius: 4px
+	&>img
+		border-radius: 4px
+.q-bordera-round-smd,
+.q-bra-rd-smd
+	border-radius: 6px
+	&>img
+		border-radius: 6px
+.q-bordera-round-md,
+.q-bra-rd-md
+	border-radius: 8px
+	&>img
+		border-radius: 8px
+.q-bordera-round-lg,
+.q-bra-rd-lg
+	border-radius: 10px
+	&>img
+		border-radius: 10px
+	
+.q-borderl-round-xs,
+.q-brl-rd-xs
+	border-radius: 2px
+	&>img
+		border-radius: 2px
+.q-borderl-round-sm,
+.q-brl-rd-sm
+	border-radius: 4px
+	&>img
+		border-radius: 4px
+.q-borderl-round-smd,
+.q-brl-rd-smd
+	border-radius: 6px
+	&>img
+		border-radius: 6px
+.q-borderl-round-md,
+.q-brl-rd-md
+	border-radius: 8px
+	&>img
+		border-radius: 8px
+.q-borderl-round-lg,
+.q-brl-rd-lg
+	border-radius: 10px
+	&>img
+		border-radius: 10px
+
+	
+.q-bordert-round-xs,
+.q-brt-rd-xs
+	border-radius: 2px
+	&>img
+		border-radius: 2px
+.q-bordert-round-sm,
+.q-brt-rd-sm
+	border-radius: 4px
+	&>img
+		border-radius: 4px
+.q-bordert-round-smd,
+.q-brt-rd-smd
+	border-radius: 6px
+	&>img
+		border-radius: 6px
+.q-bordert-round-md,
+.q-brt-rd-md
+	border-radius: 8px
+	&>img
+		border-radius: 8px
+.q-bordert-round-lg,
+.q-brt-rd-lg
+	border-radius: 10px
+	&>img
+		border-radius: 10px
+
+	
+.q-borrder-round-xs,
+.q-brr-rd-xs
+	border-radius: 2px
+	&>img
+		border-radius: 2px
+.q-borrder-round-sm,
+.q-brr-rd-sm
+	border-radius: 4px
+	&>img
+		border-radius: 4px
+.q-borrder-round-smd,
+.q-brr-rd-smd
+	border-radius: 6px
+	&>img
+		border-radius: 6px
+.q-borrder-round-md,
+.q-brr-rd-md
+	border-radius: 8px
+	&>img
+		border-radius: 8px
+.q-borrder-round-lg,
+.q-brr-rd-lg
+	border-radius: 10px
+	&>img
+		border-radius: 10px
+
+	
+.q-borderb-round-xs,
+.q-brb-rd-xs
+	border-radius: 2px
+	&>img
+		border-radius: 2px
+.q-borderb-round-sm,
+.q-brb-rd-sm
+	border-radius: 4px
+	&>img
+		border-radius: 4px
+.q-borderb-round-smd,
+.q-brb-rd-smd
+	border-radius: 6px
+	&>img
+		border-radius: 6px
+.q-borderb-round-md,
+.q-brb-rd-md
+	border-radius: 8px
+	&>img
+		border-radius: 8px
+.q-borderb-round-lg,
+.q-brb-rd-lg
+	border-radius: 10px
+	&>img
+		border-radius: 10px
+
+.q-txt-xs
+	font-size: 8px
+.q-txt-sm
+	font-size: 10px
+.q-txt-xsmd
+	font-size: 12px
+.q-txt-md
+	font-size: 14px
+.q-txt-lg
+	font-size: 16px
+
+.text-fade,
+.q-text-fade,
+.text-faded,
+.q-text-faded
+	opacity: .5
