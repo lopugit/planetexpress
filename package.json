@@ -16,7 +16,10 @@
     "build": "cross-env api=prod quasar build",
     "build-papi": "cross-env api=prod quasar build",
     "build-bapi": "cross-env api=build quasar build",
-    "build-dapi": "cross-env api=dev quasar build"
+		"build-dapi": "cross-env api=dev quasar build",
+		"commit" : "git add . ; git commit -m 'ready'",
+    "push": "npm run commit ; git push origin dev",
+    "pull": "git pull origin dev"
   },
   "dependencies": {
     "axios": "^0.17.1",
