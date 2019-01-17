@@ -8,7 +8,9 @@
 			:overlay="true"
 			).z-top.q-flex.q-flex-column
 			//- :noHideOnRouteChange="true"
-			planet-express-drawer
+			planet-express-drawer(
+				
+			)
 			
 		q-page-container.q-pt-none
 			router-view.router-view
@@ -77,51 +79,6 @@ export default {
 		// console.log(this)
 	},
 	methods: {
-		deviceTypeImage(deviceType){
-			if(!deviceType){
-				return 'mobile'
-			}
-		},
-		login({token, provider, success}){
-			// if the login button was pressed with no login options showing, toggle login options
-			if(provider == 'alopu'){
-				var passwordEmpty = this.getsmart(this, 'entity.alopu.password', '') == ''
-				var passwordMatch = ((this.getsmart(this, 'entity.alopu.password', false) === this.getsmart(this, 'passwordConfirmation', 0)) && !passwordEmpty) || !this.$store.state.alopu.registerable
-				if(this.getsmart(this, 'entity.alopu.username', false) && passwordMatch){
-					this.passwordConfirmation = ''
-					arguments[0]['success'] = true
-					var message = 'Logging in'
-					if(this.$store.state.alopu.registerable){
-						message = 'Signing up'
-					}
-					this.$q.notify({
-						message,
-						color: 'positive',
-						timeout: 4000
-					})
-					this.$store.dispatch('switchUser', arguments[0])
-				} else if (!passwordMatch && !passwordEmpty){
-					this.$q.notify({
-						message: "Your passwords didn't match",
-						color: 'warning',
-						timeout: 4000
-					})					
-				} else if(this.showLoginOptions){
-					this.$q.notify({
-						message: "Your credentials weren't valid, please try again",
-						color: 'warning',
-						timeout: 4000
-					})
-				}
-				this.showLoginOptions = true
-			}
-			if(success){
-				this.$store.dispatch('switchUser', arguments[0])
-			} else if(success == false){
-				console.error(`An error occured when processing login from ${provider}`)
-				console.error(`Here's the res: ${token}`)
-			}
-		},
 		register(){
 			this.showLoginOptions = !this.showLoginOptions
 		},
@@ -138,9 +95,6 @@ export default {
 					that.$store.dispatch('checkUsernameAvailability', that.entity.alopu.username)
 				}, 200)
 			}
-		},
-		'$store.state.alopu.entity': function(){
-			this.entity = this.$store.state.alopu.entity
 		},
 		'$store.state.app.pageHistory': function(){
 			this.pageHistory = this.$store.state.app.pageHistory

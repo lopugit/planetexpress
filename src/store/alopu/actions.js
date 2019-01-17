@@ -9,7 +9,11 @@ import axios from 'axios'
 import '@firebase/firestore'
 import CJSON from 'circular-json'
 import UAParser from 'ua-parser-js'
+import { Notify } from 'quasar'
 
+console.log('Notify', Notify)
+
+var notify = Notify
 var uap = new UAParser()
 var fs = initFirestore()
 var things = fs.collection('things') // global things collection reference
@@ -58,19 +62,16 @@ export const switchUser = (store, args) => {
 								}
 							/** add facebook email to entity and some other facebook data */
 								var facebookEmailLink = new Promise((resolve, reject)=>{
-									if(!s.getsmart(args, 'entity.ids.email-facebook', false)){
-										FB.api('/me?locale=en_US&fields=name,email,picture', user=>{
-											if(user.email){
-												args.entity.ids["email-facebook"] = user.email
-											}
-											if(user){
-												Object.assign(args.entity.facebook, user)
-											}
-											resolve(true)
-										})
-									} else {
+									FB.api('/me?locale=en_US&fields=name,email,picture', user=>{
+										if(user.email){
+											args.entity.ids["email-facebook"] = user.email
+										}
+										if(user){
+											Object.assign(args.entity.facebook, user)
+											s.setsmart(args, 'entity.facebook.picture', user.picture)
+										}
 										resolve(true)
-									}
+									})
 								})
 							/** wait for the facebook data link and then set any new entity data */
 								facebookEmailLink
@@ -590,42 +591,51 @@ export const switchUserFailure = (store, args) => {
 
 export const login = (store, {...args}) => {
 	// if the login button was pressed with no login options showing, toggle login options
-	if(provider == 'alopu'){
-		var passwordEmpty = this.getsmart(this, 'entity.alopu.password', '') == ''
-		var passwordMatch = ((this.getsmart(this, 'entity.alopu.password', false) === this.getsmart(this, 'passwordConfirmation', 0)) && !passwordEmpty) || !this.$store.state.alopu.registerable
-		if(this.getsmart(this, 'entity.alopu.username', false) && passwordMatch){
-			this.passwordConfirmation = ''
-			arguments[0]['success'] = true
+	if(args['provider'] == 'alopu'){
+		var passwordEmpty = s.getsmart(store, 'state.entity.alopu.password', '') == ''
+		var passwordMatch = ((s.getsmart(store, 'state.entity.alopu.password', false) == s.getsmart(store, 'state.passwordConfirmation', 0)) && !passwordEmpty) || !s.getsmart(store, 'state.registerable', false)
+		if(s.getsmart(store, 'state.entity.alopu.username', false) && passwordMatch){
+			store.commit('passwordConfirmation', '')
+			args['success'] = true
 			var message = 'Logging in'
-			if(this.$store.state.alopu.registerable){
+			if(s.getsmart(store, 'state.registerable', false)){
 				message = 'Signing up'
 			}
-			this.$q.notify({
+			notify.create({
 				message,
 				color: 'positive',
 				timeout: 4000
 			})
-			this.$store.dispatch('switchUser', arguments[0])
+			store.dispatch('switchUser', args)
 		} else if (!passwordMatch && !passwordEmpty){
-			this.$q.notify({
+			notify.create({
 				message: "Your passwords didn't match",
 				color: 'warning',
 				timeout: 4000
 			})					
-		} else if(this.showLoginOptions){
-			this.$q.notify({
+		} else if(s.getsmart(store, 'state.showLoginOptions', false)){
+			notify.create({
 				message: "Your credentials weren't valid, please try again",
 				color: 'warning',
 				timeout: 4000
 			})
 		}
-		this.showLoginOptions = true
+		store.commit('showLoginOptions', true)
+		// store.showLoginOptions = true
 	}
-	if(success){
-		this.$store.dispatch('switchUser', arguments[0])
-	} else if(success == false){
-		console.error(`An error occured when processing login from ${provider}`)
-		console.error(`Here's the res: ${token}`)
+	if(args['success']){
+		store.dispatch('switchUser', args)
+	} else if(args['success'] == false){
+		console.error(`An error occured when processing login from ${args['provider']}`)
+		console.error(`Here's the res: `, args['token'])
+		args.feedback = {
+			message: `There was an error logging in with your ${args['provider']} account`,
+			color: 'negative',
+			timeout: 4000,
+			position: 'top-right'
+		}
+		store.dispatch('switchUserFailure', args)
+
 	}
 }
 
@@ -718,7 +728,7 @@ export const userAgentSync = (store, userAgent) => {
 
 export const syncDevice = (store, device) => {
 	var entityDevices = s.gosmart(store, 'state.entity.inventory.devices', [])
-	var userAgent = store.getters('userAgentNormalised')
+	var userAgent = store.getters.userAgentNormalised
 	if(entityDevices){
 		var entityDevice = s.getThing({
 			option: {

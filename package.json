@@ -1,5 +1,5 @@
 {
-  "name": "quasar-test",
+  "name": "alopuplanetexpress",
   "version": "1.0.0",
   "description": "A Quasar Framework app",
   "productName": "Planet Express Next Generation Logistis",
@@ -16,13 +16,14 @@
     "build": "cross-env api=prod quasar build",
     "build-papi": "cross-env api=prod quasar build",
     "build-bapi": "cross-env api=build quasar build",
-		"build-dapi": "cross-env api=dev quasar build",
-		"commit" : "git add . ; git commit -m 'ready'",
+    "build-dapi": "cross-env api=dev quasar build",
+    "commit": "git add . ; git commit -m 'ready'",
     "push": "npm run commit ; git push origin dev",
     "pull": "git pull origin dev"
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "quasar": "^1.0.0-alpha.11",
     "vue-i18n": "^7.3.3"
   },
   "devDependencies": {
@@ -43,7 +44,7 @@
     "pug-loader": "^2.3.0",
     "quasar-cli": "git+https://github.com/lopugit/alopu-quasar-cli.git",
     "sass-loader": "^6.0.7",
-    "smarts": "^1.0.7",
+    "smarts": "^1.0.76",
     "socket.io-client": "^2.0.4",
     "ua-parser-js": "^0.7.17",
     "vue-awesome": "^2.3.5",

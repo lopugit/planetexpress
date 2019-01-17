@@ -74,6 +74,10 @@ export const showLoginOptions = (state, val) => {
 	}
 }
 
+export const passwordConfirmation = (state, val) => {
+	state.passwordConfirmation = val
+}
+
 export const mainDrawer = (state, val) => {
 	if(typeof val == 'boolean'){
 		state.mainDrawer = val

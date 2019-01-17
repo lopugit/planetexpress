@@ -503,8 +503,8 @@
 					q-item-main.full-width
 						g-signin-button(
 							:params="googleParams"
-							@success="res => login({token: Object.assign({provider: 'google'}, res), provider: 'google', success: true})"
-							@error="res => login({token: Object.assign({provider: 'google'}, res), provider: 'google', success: false})"
+							@success="res => $store.dispatch('login', {token: Object.assign({provider: 'google'}, res), provider: 'google', success: true})"
+							@error="res => $store.dispatch('login', {token: Object.assign({provider: 'google'}, res), provider: 'google', success: false})"
 							) 
 							img(
 								src="https://dy6j70a9vs3v1.cloudfront.net/funnel_wap/static/files/45eaf69cf1018aa240cea767e822dc96/google_white.svg"
@@ -519,10 +519,10 @@
 					q-item-main.full-width.p-pa-no.q-ma-no(
 						)
 						form.full-width.q-pa-no.q-ma-no(
-							v-on:submit.prevent="login({provider: 'alopu'})"
+							v-on:submit.prevent="$store.dispatch('login', {provider: 'alopu'})"
 							)
 							q-input.q-mb-sm.no-shadow.border-1.round-borders(
-								v-model='entity.alopu.username'
+								v-model='$store.state.alopu.entity.alopu.username'
 								v-if="(entity && entity.alopu) && (entity.alopu.username || entity.alopu.username == undefined || entity.alopu.username == '' || entity.alopu.username.length >= 0) "
 								float-label="Username or Email"
 								color="white"
@@ -535,10 +535,10 @@
 					q-item-main.full-width.p-pa-no.q-ma-no(
 						)
 						form.full-width.q-pa-no.q-ma-no(
-							v-on:submit.prevent="login({provider: 'alopu'})"
+							v-on:submit.prevent="$store.dispatch('login', {provider: 'alopu'})"
 							)
 							q-input.q-mb-sm.no-shadow.border-1.round-borders(
-								v-model='entity.alopu.password'
+								v-model='$store.state.alopu.entity.alopu.password'
 								v-if="(entity && entity.alopu) && (entity.alopu.password || entity.alopu.password == undefined || entity.alopu.password == '' || entity.alopu.password.length >= 0) "
 								float-label="Password"
 								color="white"
@@ -551,7 +551,7 @@
 					q-item-main.full-width.p-pa-no.q-ma-no(
 						)
 						form.full-width.q-pa-no.q-ma-no(
-							v-on:submit.prevent="login({provider: 'n'})"
+							v-on:submit.prevent="$store.dispatch('login', {provider: 'n'})"
 							)
 							q-input.q-mb-sm.no-shadow.border-1.round-borders(
 								v-model='$store.state.alopu.passwordConfirmation'
@@ -598,7 +598,14 @@ export default {
 	data () {
 		return {
 			// objects: null,
-			uuid: this._uid
+			uuid: this._uid,
+			fbParams: {
+				scope: 'email,public_profile',
+				return_scopes: true
+			},
+			googleParams: {
+				client_id: '975800988436-0hoego0l4bvdv0du05jivj538tnk91vl.apps.googleusercontent.com'
+			}
 		}
 	},
 	sockets: {
@@ -632,10 +639,44 @@ export default {
 	props: {
 		"siteTitle": {}
 	},
+	computed: {
+		entity: {
+			get(){
+				return this.$store.state.alopu.entity
+			},
+			set(val){
+				this.$store.commit('entity', {entity: val})
+			}
+		},
+		showLoginOptions: {
+			get(){
+				if(this.$store.getters.loggedIn){
+					return false
+				} else {
+					return this.$store.state.app.showLoginOptions
+				}
+			},
+			set(val){
+				this.$store.commit('showLoginOptions', val)
+			}
+		},
+		mainDrawer: {
+			get(){
+				return this.$store.state.app.mainDrawer
+			},
+			set(val){
+				this.$store.commit('mainDrawer', val)
+			}
+		},
+
+	},
 	components: {
 		currentLocationNav
 	},
 	watch: {
+		'$store.state.app.showLoginOptions'(){
+			this.showLoginOptions = this.$store.state.app.showLoginOptions
+		},
 		// '$store.state.entity': function(){
 		//   this.entity = this.$store.state.entity
 		// },

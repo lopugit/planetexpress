@@ -21,7 +21,7 @@
 					q-item(
 					)
 						q-item-side(
-							:avatar="'statics/'+deviceTypeImage($s.getsmart(device, 'type', undefined))+'.png'"
+							:avatar="'statics/'+$s.getsmart(device, 'type', 'question-yellow')+'.png'"
 						)
 						//- :label="userAgentToDevice($s.getsmart(device, 'userAgent', undefined))"
 						q-item-main(
@@ -75,7 +75,7 @@ export default {
   methods: {
     // getObjects(opts){
     //   this.$socket.emit('getObjects', opts)
-    // }
+		// },
   },
   props: {
     "siteTitle": {}

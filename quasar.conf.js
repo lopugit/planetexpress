@@ -38,7 +38,7 @@ module.exports = function (ctx) {
 			'firestore',
 			'env',
 			'smarts',
-			'ua-parser'
+			'ua-parser',
     ],
     css: [
       'app.styl'
@@ -112,9 +112,9 @@ module.exports = function (ctx) {
     //     'Ripple'
     //   ],
     //   // Quasar plugins
-    //   plugins: [
-    //     'Notify'
-    //   ]
+      // plugins: [
+      //   'Notify'
+      // ],
     // },
     // animations: 'all' --- includes all animations
     animations: [
