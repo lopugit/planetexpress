@@ -1,5 +1,5 @@
 {
-  "name": "alopuplanetexpress",
+  "name": "planetexpress",
   "version": "1.0.0",
   "description": "A Quasar Framework app",
   "productName": "Planet Express Next Generation Logistis",
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"No test specified\" && exit 0",
     "dev": "npm run start",
-    "start": "cross-env api=dev quasar dev",
+    "start": "cross-env api=dev pm2 start ecosystem.config.js",
     "start-papi": "cross-env api=prod quasar start",
     "start-bapi": "cross-env api=build quasar start",
     "start-dapi": "cross-env api=dev quasar start",
