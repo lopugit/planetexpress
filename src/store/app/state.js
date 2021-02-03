@@ -1,7 +1,7 @@
-export default {
+let state = {
   isAuthenticated: false,
 	authLogs: [],
-	entityMessage: "welcome, <a href='/self'>" + (this.entity ? this.entity.username : 'anonymous') + "</a>",
+	entityMessage: "welcome, <a href='/self'>" + (state && state.entity ? state.entity.username : 'anonymous') + "</a>",
 	realms: ['all', 'public','free','philosophy'],
 	pageHistory: [],
 	thingTypes: [
@@ -120,3 +120,5 @@ export default {
 	mainDrawer: false,
 	
 }
+
+export default state

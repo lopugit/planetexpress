@@ -1,3 +1,2 @@
-# Quasar App
+# Planet Express - Logistics Gig Economy
 
-> WIP

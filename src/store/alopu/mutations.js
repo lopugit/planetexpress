@@ -1,9 +1,9 @@
 import circularJSON from 'circular-json'
-import flamelink from 'flamelink'
 import firebase from 'firebase'
-import '@firebase/firestore'
+import 'firebase/firestore'
 var fs = initFirestore()
 var s = require('smarts')()
+
 export const setSchema = (state, payload) => {
 	if(payload && payload.id){
 		state.schemas[payload.id] = payload
@@ -98,21 +98,23 @@ export const clientId = (state, payload) => {
 /** HELPER FUNCTIONS */
 	function initFirestore(){
 		const config = {
-			apiKey: "AIzaSyATXH6vwwHRsd3amszUgFW3DEplHr7dIgQ",
-			authDomain: "alopu-cms.firebaseapp.com",
-			databaseURL: "https://alopu-cms.firebaseio.com",
-			projectId: "alopu-cms",
-			storageBucket: "alopu-cms.appspot.com",
-			messagingSenderId: "278663639558"
+			apiKey: "AIzaSyCEk1mYB5aXFjYZUzwhyTF-blYDrIDqTRk",
+			authDomain: "lopu-f3969.firebaseapp.com",
+			databaseURL: "https://lopu-f3969.firebaseio.com",
+			projectId: "lopu-f3969",
+			storageBucket: "lopu-f3969.appspot.com",
+			messagingSenderId: "299513605828",
+appId: "1:299513605828:web:1f42487525d73e00"
 		}
 		const settings = {
 			timestampsInSnapshots: true
 		}
 
+		var firebaseApp
 		if(!firebase.apps.length){
-			firebase.initializeApp(config)
+			firebaseApp = firebase.initializeApp(config)
 		} else {
-			// F = firebase.app()
+			firebaseApp = firebase.app()
 		}
 		var fs = firebase.firestore() // firestore
 		fs.settings(settings)

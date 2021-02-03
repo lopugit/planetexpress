@@ -149,17 +149,10 @@ q-page
 																		size="md"
 																		push
 																	).full-width Lets go!                         
-								//- .map-container
-									.map-positioner
-										.map
-											thing(
-												:thing=`currentMap`
-											)
 </template>
 
 <script>
 import smarts from 'smarts'
-import thing from 'src/components/thing'
 export default {
 	name: 'planetExpress-comp',
 	mixins: [
@@ -424,7 +417,6 @@ export default {
 		"siteTitle": {}
 	},
 	components: {
-		thing
 	},
 	watch: {
 		'addresses'(){

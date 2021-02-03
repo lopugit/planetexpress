@@ -481,9 +481,6 @@
 					'column': showLoginOptions
 				}`
 				)
-				//- q-item.full-width.q-pa-no.q-mb-xsmd(
-					id="firebaseui-auth-container"
-					)
 				q-item.full-width.q-pa-no.q-mb-xsmd(
 					v-show="showLoginOptions"
 					)

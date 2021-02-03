@@ -4,13 +4,13 @@ var fs = require('fs')
 // var utils = require('utils')
 
 module.exports = function (ctx) {
-	var apiDomain = '"bld"'
-	if(process.env.api == 'dev'){
-		apiDomain = '"src"'
+	var api = '"http://localhost:9999"'
+	if(process.env.api == 'dev'){  
+    api = '"http//localhost:9999"'
 	} else if (process.env.api == 'build'){
-		apiDomain = '"bld"'
+		api = '"https://api.alopu.bld"'
 	} else if (process.env.api == 'prod'){
-		apiDomain = '"com"'
+    api = '"https://api.alopu.com"'
 	}
   return {
     // app plugins (/src/plugins)
@@ -34,7 +34,6 @@ module.exports = function (ctx) {
 			'facebook-login',
 			'google-login',
 			'firebase',
-			'firebaseui',
 			'firestore',
 			'env',
 			'smarts',
@@ -51,17 +50,13 @@ module.exports = function (ctx) {
       // 'fontawesome'
     ],
     supportIE: true,
-    vendor: {
-      add: [],
-      remove: []
-    },
     build: {
       scopeHoisting: true,
       vueRouterMode: 'history',
       gzip: true,
 			analyze: true,
 			env: {
-				apiDomain: apiDomain
+				api
 			},
       // extractCSS: false,
       // useNotifier: false,
@@ -77,6 +72,12 @@ module.exports = function (ctx) {
             }
           },
         )
+        cfg.module.rules.push(
+					{
+						test: /\.pug$/,
+						loader: 'pug-plain-loader'
+					}
+				)
         // fs.writeFile('debug.js', __dirname+"\n"+JSON.stringify(cfg), err=>{
         //   if(err){
         //     console.log(err)

@@ -3,10 +3,10 @@ export const someAction = (store) => {
 }
 */
 import smarts from 'smarts'
-import flamelink from 'flamelink'
+// import flamelink from 'flamelink'
 import firebase from 'firebase'
 import axios from 'axios'
-import '@firebase/firestore'
+import 'firebase/firestore'
 import CJSON from 'circular-json'
 import UAParser from 'ua-parser-js'
 import { Notify } from 'quasar'
@@ -497,7 +497,7 @@ export const switchUser = (store, args) => {
 					provider: args.provider,
 					clientId: args.clientId
 				}
-				axios.post('https://api.alopu.'+s.getsmart(store, 'state.env.apiDomain', 'com')+'/auth', params, axiosConf)
+				axios.post(s.getsmart(store, 'state.env.api', 'https://api.alopu.com')+'/auth', params, axiosConf)
 				.then(post=>{
 		
 					if(post.data.success && post.data.entity){
@@ -561,7 +561,7 @@ export const checkUsernameAvailability = (store, username) =>{
 		data: {
 			username
 		},
-		url: 'https://api.alopu.'+s.getsmart(store, 'state.env.apiDomain', 'com')+'/usernamecheck'
+		url: s.getsmart(store, 'state.env.api', 'https://api.alopu.com')+'/usernamecheck'
 	})
 	.then(res=>{
 		if(res.data.success){
@@ -771,12 +771,13 @@ export const manifestClientId = (store, uuid) => {
 
 function initFirestore(){
 	const config = {
-		apiKey: "AIzaSyATXH6vwwHRsd3amszUgFW3DEplHr7dIgQ",
-		authDomain: "alopu-cms.firebaseapp.com",
-		databaseURL: "https://alopu-cms.firebaseio.com",
-		projectId: "alopu-cms",
-		storageBucket: "alopu-cms.appspot.com",
-		messagingSenderId: "278663639558"
+		apiKey: "AIzaSyCEk1mYB5aXFjYZUzwhyTF-blYDrIDqTRk",
+		authDomain: "lopu-f3969.firebaseapp.com",
+		databaseURL: "https://lopu-f3969.firebaseio.com",
+		projectId: "lopu-f3969",
+		storageBucket: "lopu-f3969.appspot.com",
+		messagingSenderId: "299513605828",
+appId: "1:299513605828:web:1f42487525d73e00"
 	}
 	const settings = {
 		timestampsInSnapshots: true
