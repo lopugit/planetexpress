@@ -166,7 +166,7 @@ export default {
 	data () {
 		return {
 			// objects: null,
-			uuid: this.$uuid.v4(),
+			uid: this.$uuid.v4(),
 			currentMap: {
 				names: ['courier map'],
 				properties: [
@@ -195,7 +195,7 @@ export default {
 			// }
 		}
 		// giveObjects(data){
-		//   if(this.uuid == data.id){
+		//   if(this.uid == data.id){
 		//     this.objects = data.objects
 		//   }
 		// }
@@ -223,7 +223,7 @@ export default {
 		cacheCurrentAddresses(){
 			this.$store.commit('addCachedState', this.addresses)
 		},
-		addAddress({address={names: ['address'], address: undefined, goods: {}, uuid: this.$uuid.v4()}, actionSource}={}){
+		addAddress({address={names: ['address'], address: undefined, goods: {}, uid: this.$uuid.v4()}, actionSource}={}){
 			if(address){
 				this.pushThing({
 					option: address,
@@ -514,23 +514,6 @@ export default {
 							justify-content: center
 							flex-direction: column
 							max-width: 500px
-							.q-search
-								// margin-top: -15px
-								padding: 15px
-								// max-width: 95%
-								.q-if-inner
-									min-height: 24px !important
-									padding-top: 0px !important
-								.q-if-label
-									// top: 3px
-								.q-if-label-above
-									// transform: scale(0.75) translate(0, -21px)
-								input
-									width: 280px
-									&::selection
-										color: $green
-										background: rgba($green, .3)
-									// max-width: 90%
 							.addresses-container
 								width: 100%
 								max-width: 100%

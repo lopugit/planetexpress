@@ -60,13 +60,13 @@ export default {
 			False: false,
 			wooo: true,
 			siteTitle: 'alopu',
-			uuid: this._uid,
+			uid: this._uid,
 			fbParams: {
 				scope: 'email,public_profile',
 				return_scopes: true
 			},
 			googleParams: {
-				client_id: '975800988436-0hoego0l4bvdv0du05jivj538tnk91vl.apps.googleusercontent.com'
+				client_id: '211744308643-qbndqa7gutacqbkh0jrre05ihvdlfquv.apps.googleusercontent.com'
 			}
 		}
 	},

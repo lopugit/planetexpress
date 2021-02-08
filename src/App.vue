@@ -53,7 +53,7 @@ export default {
 			}
 		},
 		giveRealms(data){
-			if(data.id == this.uuid){
+			if(data.id == this.uid){
 				// console.log("setting reamls in store")
 				// console.log(data)
 				this.$store.commit('SetRealms', data.realms)
@@ -112,7 +112,7 @@ export default {
 			document.body.onmouseup = mouseUp
 			console.log("%s was created", this.siteTitle)
 			this.$socket.emit('getRealms', {
-				id: this.uuid,
+				id: this.uid,
 				find: {},
 				count: Infinity
 			})

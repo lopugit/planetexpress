@@ -178,7 +178,7 @@ export default {
   data () {
     return {
       sidebar: null,
-      uuid: this._uid,
+      uid: this._uid,
       entity: this.$store.state.entity,
       optionsMutable: this.$store.state.sideBarOptions
       // message: this.$store.state.entityMessage
@@ -196,14 +196,14 @@ export default {
     },
     giveNav(data){
       // console.log(data)
-      if(this.uuid == data.id){
+      if(this.uid == data.id){
         this.sidebar = data.sidebar
       }
     }
   },
   created () {
     // this.getNav({
-    //   id: this.uuid,
+    //   id: this.uid,
     //   siteTitle: this.siteTitle
     // })
     this.eventHub.$on('toggleSideBar', ()=>{

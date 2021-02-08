@@ -2,7 +2,6 @@
 import socketio from 'socket.io-client'
 import VueSocketIo from 'vue-socket.io'
 var parser = require('alopu-socket.io-parser')
-console.log(process.env.api)
 var SocketInstance = socketio((process.env.api), {
   parser
 })

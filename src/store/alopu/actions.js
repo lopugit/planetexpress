@@ -11,8 +11,6 @@ import CJSON from 'circular-json'
 import UAParser from 'ua-parser-js'
 import { Notify } from 'quasar'
 
-console.log('Notify', Notify)
-
 var notify = Notify
 var uap = new UAParser()
 var fs = initFirestore()

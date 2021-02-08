@@ -6,7 +6,7 @@ var fs = require('fs')
 module.exports = function (ctx) {
 	var api = '"http://localhost:9999"'
 	if(process.env.api == 'dev'){  
-    api = '"http//localhost:9999"'
+    api = '"http://localhost:9999"'
 	} else if (process.env.api == 'build'){
 		api = '"https://api.alopu.bld"'
 	} else if (process.env.api == 'prod'){

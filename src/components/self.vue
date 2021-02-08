@@ -13,7 +13,7 @@ export default {
   data () {
     return {
       // objects: null,
-      uuid: this._uid,
+      uid: this._uid,
       entity: this.$store.state.entity
     }
   },
@@ -23,7 +23,7 @@ export default {
     },
     // giveObjects(data){
     //   // console.log(data)
-    //   if(this.uuid == data.id){
+    //   if(this.uid == data.id){
     //     this.objects = data.objects
     //   }
     // }
@@ -34,7 +34,7 @@ export default {
     //     count: this.count,
     //     sort: 'alphabetical',
     //     sortDirection: 'ascending',
-    //     id: this.uuid
+    //     id: this.uid
     //   })
     // } else {
     //   this.objects = null

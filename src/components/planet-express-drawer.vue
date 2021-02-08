@@ -595,13 +595,13 @@ export default {
 	data () {
 		return {
 			// objects: null,
-			uuid: this._uid,
+			uid: this._uid,
 			fbParams: {
 				scope: 'email,public_profile',
 				return_scopes: true
 			},
 			googleParams: {
-				client_id: '975800988436-0hoego0l4bvdv0du05jivj538tnk91vl.apps.googleusercontent.com'
+				client_id: '211744308643-qbndqa7gutacqbkh0jrre05ihvdlfquv.apps.googleusercontent.com'
 			}
 		}
 	},
@@ -611,7 +611,7 @@ export default {
 		},
 		// giveObjects(data){
 		//   // console.log(data)
-		//   if(this.uuid == data.id){
+		//   if(this.uid == data.id){
 		//     this.objects = data.objects
 		//   }
 		// }
@@ -622,7 +622,7 @@ export default {
 		//     count: this.count,
 		//     sort: 'alphabetical',
 		//     sortDirection: 'ascending',
-		//     id: this.uuid
+		//     id: this.uid
 		//   })
 		// } else {
 		//   this.objects = null

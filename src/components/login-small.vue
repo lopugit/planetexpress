@@ -21,7 +21,7 @@ export default {
         username: null,
         password: null,
       },
-      uuid: this._uid,
+      uid: this._uid,
       errMsg: null,
       feedbackMsg: null
     }
@@ -45,7 +45,7 @@ export default {
     //     count: this.count,
     //     sort: 'alphabetical',
     //     sortDirection: 'ascending',
-    //     id: this.uuid
+    //     id: this.uid
     //   })
     // } else {
     //   this.objects = null

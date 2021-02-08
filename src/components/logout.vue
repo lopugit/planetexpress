@@ -18,7 +18,7 @@ export default {
 			entity: this.$store.state.entity,
 			errMsg: "thanks for logging out",
 			feedbackMsg: "thanks for logging out",
-			uuid: this._uid
+			uid: this._uid
 		}
 	},
 	sockets: {
@@ -37,7 +37,7 @@ export default {
 		//     count: this.count,
 		//     sort: 'alphabetical',
 		//     sortDirection: 'ascending',
-		//     id: this.uuid
+		//     id: this.uid
 		//   })
 		// } else {
 		//   this.objects = null
