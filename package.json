@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"No test specified\" && exit 0",
-    "dev": "pm2 start ecosystem.config.js",
+    "dev": "pm2 start ecosystem.config.js --only dev-planetexpress",
+    "serve": "pm2 start ecosystem.config.js --only planetexpress",
     "log": "pm2 logs dev-planetexpress",
     "devlog": "npm run dev ; pm2 logs dev-planetexpress",
     "devandlog": "npm run devlog",
