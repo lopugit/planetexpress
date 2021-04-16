@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "socket.io-parser": "git+https://github.com/lopugit/socket.io-parser",
+    "has-binary2": "git+https://github.com/lopugit/has-binary2.git",
     "circular-json": "0.5.1",
     "cross-env": "5.2.0",
     "firebase": "8.2.5",

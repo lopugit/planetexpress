@@ -24,7 +24,8 @@
 				size="1.2rem"
 				).shadow-0
 			img(
-				src="statics/pe-logo.png"
+				src="statics/icons/favicon_100x100.png"
+				style="width: 30px; height: 30px;"
 				@click="mainDrawer = !mainDrawer"
 				)
 			//- q-toolbar-title() Planet Express
