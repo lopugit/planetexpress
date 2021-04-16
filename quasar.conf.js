@@ -4,14 +4,12 @@ var fs = require('fs')
 // var utils = require('utils')
 
 module.exports = function (ctx) {
-	var api = '"http://localhost:9999"'
-	if(process.env.api == 'dev'){  
-    api = '"http://localhost:9999"'
-	} else if (process.env.api == 'build'){
-		api = '"https://api.alopu.bld"'
-	} else if (process.env.api == 'prod'){
+	
+  var api = '"http://localhost:9999"'
+  if(process.env.api == "prod"){  
     api = '"https://api.alopu.com"'
 	}
+
   return {
     // app plugins (/src/plugins)
     plugins: [
@@ -35,7 +33,6 @@ module.exports = function (ctx) {
 			'google-login',
 			'firebase',
 			'firestore',
-			'env',
 			'smarts',
 			'ua-parser',
     ],

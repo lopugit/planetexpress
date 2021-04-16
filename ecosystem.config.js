@@ -16,7 +16,7 @@ module.exports = {
     name: 'planetexpress',
 		script: 'quasar',
     // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem-file/
-    args: 'serve --api=prod',
+    args: 'serve dist/spa-mat --p 7789 --api=prod',
     instances: 2,
     autorestart: true,
     watch: true,
