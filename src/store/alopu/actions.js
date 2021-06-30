@@ -495,7 +495,7 @@ export const switchUser = (store, args) => {
 					provider: args.provider,
 					clientId: args.clientId
 				}
-				axios.post(s.getsmart(store, 'state.env.api', 'https://api.alopu.com')+'/auth', params, axiosConf)
+				axios.post(s.getsmart(store, 'state.env.api.protocol', 'https://') + s.getsmart(store, 'state.env.api.uri', 'api.alopu.com')+'/auth', params, axiosConf)
 				.then(post=>{
 		
 					if(post.data.success && post.data.entity){
@@ -559,7 +559,7 @@ export const checkUsernameAvailability = (store, username) =>{
 		data: {
 			username
 		},
-		url: s.getsmart(store, 'state.env.api', 'https://api.alopu.com')+'/usernamecheck'
+		url: s.getsmart(store, 'state.env.api.protocol', 'https://') + s.getsmart(store, 'state.env.api.uri', 'api.alopu.com')+'/usernamecheck'
 	})
 	.then(res=>{
 		if(res.data.success){

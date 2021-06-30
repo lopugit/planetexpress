@@ -1,14 +1,27 @@
 // Configuration for your app
-var path = require('path')
-var fs = require('fs')
-// var utils = require('utils')
+let path = require('path')
+let fs = require('fs')
+// let utils = require('utils')
 
 module.exports = function (ctx) {
 	
-  var api = '"http://localhost:9999"'
-  if(process.env.api == "prod"){  
-    api = '"https://api.alopu.com"'
-	}
+  let api = {}
+
+  switch (process.env.api){
+    case "prod":
+      api.uri = "api.alopu.com"
+      api.protocol = "https://"
+      break  
+    default:
+      api.uri = "localhost:9999",
+      api.protocol = ""
+      break
+  }
+  
+  api.uri = "api.alopu.com"
+  api.protocol = "https://"
+
+  api = JSON.stringify(api)
 
   return {
     // app plugins (/src/plugins)

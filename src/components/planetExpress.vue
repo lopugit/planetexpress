@@ -112,22 +112,22 @@ q-page
 																							opacity: .5
 																						}`
 																						)
-																				.add-good(
-																					slot="footer"
-																					@click=`
-																						addGood(false, address, actionType)
-																						`
-																					)
-																					q-btn(
-																						size="md"
-																						color="white"
-																						:label=`"add "+actionType+" box"`
-																						).shadow-3.text-primary
-																				
-																						//- q-chip(
-																							:floating="true"
-																							color="secondary"
-																							) {{ address.goods.length }}
+																			.add-good(
+																				slot="footer"
+																				@click=`
+																					addGood(false, address, actionType)
+																					`
+																				)
+																				q-btn(
+																					size="md"
+																					color="white"
+																					:label=`"add "+actionType+" box"`
+																					).shadow-3.text-primary
+																			
+																					//- q-chip(
+																						:floating="true"
+																						color="secondary"
+																						) {{ address.goods.length }}
 											.additional-actions-container
 												.additional-actions-positioner
 													.additional-actions
