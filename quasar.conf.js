@@ -68,6 +68,7 @@ module.exports = function (ctx) {
 			env: {
 				api
 			},
+      webpackManifest: true,
       // extractCSS: false,
       // useNotifier: false,
       extendWebpack (cfg) {
