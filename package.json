@@ -33,13 +33,11 @@
     "vue-i18n": "7.3.3"
   },
   "devDependencies": {
-    "socket.io-parser": "git+https://github.com/lopugit/socket.io-parser",
-    "has-binary2": "git+https://github.com/lopugit/has-binary2.git",
     "circular-json": "0.5.1",
     "cross-env": "5.2.0",
     "firebase": "8.2.5",
     "fs": "0.0.1-security",
-    "lodash": "4.17.21",
+    "has-binary2": "git+https://github.com/lopugit/has-binary2.git",
     "mapbox-gl": "0.44.1",
     "mapbox-gl-vue": "1.7.0",
     "mapbox.js": "3.1.1",
@@ -50,6 +48,7 @@
     "sass-loader": "6.0.7",
     "smarts": "1.0.228",
     "socket.io-client": "2.0.4",
+    "socket.io-parser": "git+https://github.com/lopugit/socket.io-parser",
     "strip-ansi": "3.0.1",
     "ua-parser-js": "0.7.24",
     "vue-awesome": "2.3.5",
