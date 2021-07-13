@@ -18,7 +18,7 @@
     "start-papi": "cross-env api=prod quasar start",
     "start-bapi": "cross-env api=build quasar start",
     "start-dapi": "cross-env api=dev quasar start",
-    "build": "cross-env api=prod quasar build ; cp -a dist ../build-planetexpress/",
+    "build": "rm -r dist ; cross-env api=prod quasar build",
     "build-papi": "cross-env api=prod quasar build",
     "build-bapi": "cross-env api=build quasar build",
     "build-dapi": "cross-env api=dev quasar build",
