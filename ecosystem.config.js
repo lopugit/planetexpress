@@ -13,7 +13,7 @@ module.exports = {
     },
   },
   {
-    name: 'prod--planetexpress',
+    name: 'prod-planetexpress',
 		script: 'node serve.js',
     instances: 2,
     autorestart: true,

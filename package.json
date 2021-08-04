@@ -11,11 +11,11 @@
     "dev": "pm2 start ecosystem.config.js --only dev-planetexpress",
     "unserve": "pm2 stop planetexpress ; pm2 status",
     "log.dev": "pm2 logs dev-planetexpress",
-    "log.prod": "pm2 logs prod--planetexpress",
+    "log.prod": "pm2 logs prod-planetexpress",
     "start.dev": "pm2 start ecosystem.config.js --only dev-planetexpress ; pm2 log dev-planetexpress",
     "build.prod": "cross-env api=prod quasar build",
     "serve.dev": "pm2 start ecosystem.config.js --only dev-serve-planetexpress ; pm2 log dev-serve-planetexpress",
-    "serve.prod": "pm2 start ecosystem.config.js --only prod--planetexpress ; pm2 log prod--planetexpress",
+    "serve.prod": "pm2 start ecosystem.config.js --only prod-planetexpress ; pm2 log prod-planetexpress",
     "commit": "git add . ; git commit -m 'ready'",
     "push": "npm run commit & git push origin dev",
     "pull": "git pull origin dev"
