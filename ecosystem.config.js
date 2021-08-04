@@ -15,9 +15,7 @@ module.exports = {
   {
     name: 'prod-planetexpress',
 		script: 'node serve.js',
-    instances: 2,
     autorestart: true,
-    watch: true,
     max_memory_restart: '1G',
     env: {
 			api: 'prod',
