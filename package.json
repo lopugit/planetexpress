@@ -35,7 +35,7 @@
     "mapbox-gl": "0.44.1",
     "mapbox-gl-vue": "1.7.0",
     "mapbox.js": "3.1.1",
-    "node-sass": "5.0.0",
+    "node-sass": "7.0.0",
     "pug": "^2.0.0",
     "pug-loader": "2.4.0",
     "pug-plain-loader": "1.0.0",
