@@ -9,9 +9,9 @@
 			).z-top.q-flex.q-flex-column
 			//- :noHideOnRouteChange="true"
 			planet-express-drawer(
-				
+
 			)
-			
+
 		q-page-container.q-pt-none
 			router-view.router-view
 		q-toolbar.fixed-top.q-nav-toolbar(
@@ -39,7 +39,7 @@
 				q-item-main(
 					label="This platform is under active development"
 				).text-center.text-white.text-weight-medium
-				
+
 	//- sidebar
 </template>
 
@@ -235,16 +235,16 @@ a:-webkit-any-link,
 
 	+keyframes(hoverMaple)
 		0%
-			cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer 
+			cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer
 		49%
-			cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer 
-		50% 
-			cursor: url(/statics/cursors/ms/aero_link1.cur) 2 2, auto 
-		99% 
-			cursor: url(/statics/cursors/ms/aero_link1.cur) 2 2, auto 
+			cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer
+		50%
+			cursor: url(/statics/cursors/ms/aero_link1.cur) 2 2, auto
+		99%
+			cursor: url(/statics/cursors/ms/aero_link1.cur) 2 2, auto
 		100%
-			cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer 
-	
+			cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer
+
 .fa-icon
 	user-select: none
 button,
@@ -349,7 +349,7 @@ body
 		text-transform: capitalize
 		li
 			margin-right: 4px
-		.active,
+		.active
 			background-color: rgba($green, .5)
 		.highlight
 			background-color: $green
@@ -431,7 +431,7 @@ body
 		left: 15px
 		width: 16px
 		height: 16px
-		
+
 .g-signin-button
 	/* This is where you control how the button looks. Be creative! */
 	display flex
@@ -448,7 +448,7 @@ body
 	-moz-user-select: none
 	-ms-user-select: none
 	user-select: none
-	position: relative	
+	position: relative
 	background-color #3f82f8
 	&:hover
 		background-color #4c8bf8
@@ -488,4 +488,4 @@ body
 		width: 110px
 		opacity: .48
 		background-color: $gentleGrey
-</style> 
+</style>

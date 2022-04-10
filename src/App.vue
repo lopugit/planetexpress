@@ -63,7 +63,7 @@ export default {
 	},
 	beforeCreated(){
 		},
-	created(){		
+	created(){
 		/** inits */
 			/** initiate unique client id */
 				this.$store.dispatch('manifestClientId', this.$uuid.v4())
@@ -225,16 +225,16 @@ a:-webkit-any-link,
 
 	+keyframes(hoverMaple)
 		0%
-			cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer 
+			cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer
 		49%
-			cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer 
-		50% 
-			cursor: url(/statics/cursors/ms/aero_link1.cur) 2 2, auto 
-		99% 
-			cursor: url(/statics/cursors/ms/aero_link1.cur) 2 2, auto 
+			cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer
+		50%
+			cursor: url(/statics/cursors/ms/aero_link1.cur) 2 2, auto
+		99%
+			cursor: url(/statics/cursors/ms/aero_link1.cur) 2 2, auto
 		100%
-			cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer 
-	
+			cursor: url(/statics/cursors/ms/aero_link2.cur) 2 2, pointer
+
 .fa-icon
 	user-select: none
 button,
@@ -339,7 +339,7 @@ body
 		text-transform: capitalize
 		li
 			margin-right: 4px
-		.active,
+		.active
 			background-color: rgba($green, .5)
 		.highlight
 			background-color: $green
