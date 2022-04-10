@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    name: 'dev-planetexpress',
+    name: 'planetexpress-frontend',
 		script: 'quasar',
     // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem-file/
     args: 'dev --api=dev',
