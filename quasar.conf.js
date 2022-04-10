@@ -4,20 +4,20 @@ let fs = require('fs')
 // let utils = require('utils')
 
 module.exports = function (ctx) {
-	
+
   let api = {}
 
   switch (process.env.api){
     case "prod":
       api.uri = "api.alopu.com"
       api.protocol = "https://"
-      break  
+      break
     default:
       api.uri = "localhost:9999",
       api.protocol = ""
       break
   }
-  
+
   api.uri = "api.alopu.com"
   api.protocol = "https://"
 
@@ -32,7 +32,6 @@ module.exports = function (ctx) {
       'mapbox-gl',
       'mapbox-gl-vue',
       'vue-awesome',
-      'vue-img-inputer',
       'vuedraggable',
       'vue-socket.io',
       'vue-select',
