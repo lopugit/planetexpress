@@ -22,7 +22,7 @@
     "pull": "git pull origin dev"
   },
   "dependencies": {
-    "axios": "0.21.1",
+    "axios": "0.21.2",
     "babel-runtime": "^6.26.0",
     "quasar": "1.0.4",
     "quasar-cli": "0.17.20",
