@@ -93,7 +93,7 @@ q-page
 																						color="negative"
 																						small
 																						@click=`removeGood(good, address, actionType)`
-										
+
 																						).z-top.q-chip-delete.q-chip-good-delete
 																						q-icon(
 																							name="close"
@@ -121,9 +121,9 @@ q-page
 																				q-btn(
 																					size="md"
 																					color="white"
-																					:label=`"add "+actionType+" box"`
+																					:label=`"add "+actionType`
 																					).shadow-3.text-primary
-																			
+
 																					//- q-chip(
 																						:floating="true"
 																						color="secondary"
@@ -148,7 +148,7 @@ q-page
 																		text-color="white"
 																		size="md"
 																		push
-																	).full-width Lets go!                         
+																	).full-width Lets go!
 </template>
 
 <script>
@@ -231,7 +231,7 @@ export default {
 					obj: true,
 					keys: ['uuid'],
 				})
-				
+
 				this.cacheCurrentAddresses() // caches address into vuex state
 				if(!this.interactionStarted){ // changes state value for user interaction started to
 					this.interactionStarted = true
@@ -244,9 +244,9 @@ export default {
 					address.address = undefined
 				} else {
 					if(
-						this.addresses.length <= 1 
-						&& this.getsmart(address, 'goods.pickup.length', 0) == 0 
-						&& this.getsmart(address, 'goods.dropoff.length', 0) == 0 
+						this.addresses.length <= 1
+						&& this.getsmart(address, 'goods.pickup.length', 0) == 0
+						&& this.getsmart(address, 'goods.dropoff.length', 0) == 0
 						&& address.address == undefined
 						){
 						this.$q.dialog({
@@ -259,7 +259,7 @@ export default {
 							title: 'Warning',
 							message: "This will remove the whole stop including all pickups and dropoffs",
 							ok: 'got it',
-							cancel: 'no no no no'             
+							cancel: 'no no no no'
 						})
 						.then(()=>{
 							this.addresses.splice(index, 1)
@@ -312,9 +312,9 @@ export default {
 						console.log('address')
 						console.log(address)
 						this.setThing({
-							option: good, 
-							list: this.gosmart(address, 'goods.'+data.addressType, []), 
-							obj: "debug",  
+							option: good,
+							list: this.gosmart(address, 'goods.'+data.addressType, []),
+							obj: "debug",
 							keys: ['uuid'],
 							push: true
 						})
@@ -327,8 +327,8 @@ export default {
 			if(good && address && goodsPath){
 				console.log('removing')
 				this.popThing({
-					option: good, 
-					list: this.gosmart(address, 'goods.'+goodsPath, []), 
+					option: good,
+					list: this.gosmart(address, 'goods.'+goodsPath, []),
 					keys: ['uuid', '_id'],
 					keymatchtype: 'broad'
 				})
@@ -360,7 +360,7 @@ export default {
 				let url = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + lng + "," + lat + ".json?access_token=" + this.mapboxglAccessToken +"&types=address"
 				this.$http.get(url)
 				.then((data)=>{
-					resolve(data.body.features[0].place_name)            
+					resolve(data.body.features[0].place_name)
 				})
 				.catch((err)=>{
 					console.error(err)
@@ -373,7 +373,7 @@ export default {
 				let url = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+text+".json?access_token=" + this.mapboxglAccessToken +"&types=address"
 				this.$http.get(url)
 				.then((data)=>{
-					resolve(data.body.features)            
+					resolve(data.body.features)
 				})
 				.catch((err)=>{
 					console.error(err)
@@ -434,7 +434,7 @@ export default {
 		// '$store.state.entity': function(){
 		//   this.entity = this.$store.state.entity
 		// },
-	},  
+	},
 	route: {
 		canActivate(){
 			return true
@@ -521,7 +521,7 @@ export default {
 								padding-bottom: 30px
 								.addresses-positioner
 									.addresses
-										.address-container  
+										.address-container
 											.address-positioner
 												padding-bottom: 20px
 												.address
@@ -635,7 +635,7 @@ export default {
 																align-items: center
 																justify-content: center
 																flex-direction: column
-																
+
 								.additional-actions-container
 									margin-top: 10px
 									.action
@@ -646,8 +646,8 @@ export default {
 										.q-btn-inner
 											&::before
 											// color: black !important
-								
-				
+
+
 	// background: $grey
 //quasar mods
 .q-chip-delete
