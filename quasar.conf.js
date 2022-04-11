@@ -60,9 +60,12 @@ module.exports = function (ctx) {
     ],
     supportIE: true,
     build: {
+      afterBuild({ quasarConf }) {
+        console.log('woo')
+      },
       scopeHoisting: true,
       vueRouterMode: 'history',
-      gzip: true,
+      gzip: false,
 			analyze: false,
 			env: {
 				api

@@ -1,5 +1,5 @@
 <template lang="pug">
-	#q-app(ref="app")
+	div(ref="app" id="q-app")
 		//- navbar(:siteTitle="siteTitle")
 		router-view
 		//- sidebar
