@@ -47,7 +47,7 @@
     "socket.io-client": "2.0.4",
     "socket.io-parser": "git+https://github.com/lopugit/socket.io-parser",
     "strip-ansi": "3.0.1",
-    "ua-parser-js": "0.7.24",
+    "ua-parser-js": "0.7.33",
     "vue-awesome": "2.3.5",
     "vue-facebook-signin-button": "1.0.1",
     "vue-google-signin-button": "1.0.2",
